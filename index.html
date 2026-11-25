@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1A1026">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pecados">
+<title>SIETE PECADOS</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<style>
+:root{--tinta:#1A1026;--crema:#FFE9C7;--rojo:#FF3B30;--amarillo:#FFD23F;--morado:#9B5CFF;--rosa:#FF4FA3;--verde:#39D353;--naranja:#FF8A1F;--cian:#2EC8FF;--bg:var(--tinta);--pnl:#241733;--pnl2:#2e1e40;--linea:#3d2a52;--tx:var(--crema);--mut:#a893b8}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;height:100%}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;overscroll-behavior:none}
+#app{max-width:520px;margin:0 auto;position:relative;height:100vh;height:100dvh;overflow:hidden}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;padding:16px 16px 26px;overflow-y:auto}
+.screen.on{display:flex}
+h1,h2,h3{margin:0;font-weight:800}
+#cover{padding:0;overflow:hidden}
+.ap-portada{position:relative;overflow:hidden;background:var(--tinta);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px 96px;width:100%;height:100%}
+.ap-portada-fondo{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.ap-cabecera{position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:-30px}
+.ap-titulo{margin:0;font-family:'Luckiest Guy',Impact,sans-serif;font-size:clamp(46px,15vw,64px);line-height:.86;color:var(--crema);text-shadow:0 6px 0 var(--tinta),0 0 26px rgba(255,59,48,.55);display:flex;flex-direction:column;align-items:center;gap:2px}
+.ap-palabra{display:flex;gap:2px}
+.ap-letra{display:inline-block;transform:rotate(var(--r));animation:ap-letra-entra .55s calc(var(--i)*70ms + 200ms) cubic-bezier(.2,1.5,.4,1) both}
+.ap-palabra:last-child .ap-letra{color:var(--amarillo)}
+.ap-cuernos{position:relative}
+.ap-cuernos::before,.ap-cuernos::after{content:"";position:absolute;top:-14px;width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:22px solid var(--rojo);filter:drop-shadow(0 2px 0 var(--tinta))}
+.ap-cuernos::before{left:2px;transform:rotate(-24deg)}
+.ap-cuernos::after{right:2px;transform:rotate(24deg)}
+@keyframes ap-letra-entra{from{opacity:0;transform:rotate(var(--r)) translateY(26px) scale(.6)}to{opacity:1;transform:rotate(var(--r)) translateY(0) scale(1)}}
+.ap-subtitulo{font-size:clamp(11px,3.4vw,14px);letter-spacing:.22em;text-transform:uppercase;color:var(--crema);opacity:0;animation:ap-sub-entra .6s 1.05s ease-out both;text-shadow:0 2px 6px var(--tinta)}
+@keyframes ap-sub-entra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.ap-bombillas{position:absolute;top:0;left:0;width:100%;height:auto;z-index:1}
+.ap-bombilla{animation:ap-titila 2.4s calc(var(--i)*140ms) ease-in-out infinite}
+@keyframes ap-titila{0%,100%{fill:var(--c);opacity:1;filter:drop-shadow(0 0 6px var(--c))}50%{fill:#4a3a2a;opacity:.5;filter:none}}
+.ap-boton{position:absolute;bottom:6%;left:50%;translate:-50% 0;z-index:3;border:4px solid var(--tinta);background:var(--amarillo);color:var(--tinta);font-family:'Luckiest Guy',Impact,sans-serif;font-size:26px;letter-spacing:.08em;padding:14px 46px;border-radius:16px;box-shadow:0 7px 0 var(--tinta);cursor:pointer;opacity:0;animation:ap-boton-entra .5s 1.35s cubic-bezier(.2,1.6,.4,1) both}
+.ap-boton:active{box-shadow:0 2px 0 var(--tinta);translate:-50% 5px}
+@keyframes ap-boton-entra{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+.pp-entra-dcha{animation:pp-dcha .26s ease-out both}
+.pp-sale-izq{animation:pp-izq .26s ease-in both}
+.pp-entra-izq{animation:pp-izq-r .26s ease-out both}
+.pp-sale-dcha{animation:pp-dcha-r .26s ease-in both}
+@keyframes pp-dcha{from{transform:translateX(34px);opacity:0}to{transform:none;opacity:1}}
+@keyframes pp-izq{from{transform:none;opacity:1}to{transform:translateX(-34px);opacity:0}}
+@keyframes pp-izq-r{from{transform:translateX(-34px);opacity:0}to{transform:none;opacity:1}}
+@keyframes pp-dcha-r{from{transform:none;opacity:1}to{transform:translateX(34px);opacity:0}}
+.carta-entra{animation:carta .34s cubic-bezier(.2,1.3,.35,1) both}
+@keyframes carta{from{opacity:0;transform:translateY(18px) rotate(-1.2deg) scale(.96)}to{opacity:1;transform:none}}
+.impacto-tiembla{animation:tiembla .42s cubic-bezier(.36,.07,.19,.97)}
+@keyframes tiembla{10%{transform:translate(-4px,1px)}20%{transform:translate(4px,-2px)}30%{transform:translate(-5px,0)}45%{transform:translate(5px,2px)}60%{transform:translate(-3px,-1px)}80%{transform:translate(2px,1px)}100%{transform:none}}
+.candado{display:block}
+.candado-arco{transform-origin:60px 66px;transition:transform .38s cubic-bezier(.3,1.4,.4,1)}
+.candado.is-abierto .candado-arco{transform:rotate(-26deg) translateY(-5px)}
+.candado.is-abierto .candado-pupila{animation:candado-alegre .5s .15s both}
+@keyframes candado-alegre{0%{r:3.6}40%{r:5}100%{r:2}}
+.candado.is-denegado{animation:candado-no .4s}
+.candado.is-denegado .candado-cuerpo{animation:candado-cabezazo .4s}
+@keyframes candado-no{0%,100%{transform:none}25%{transform:translateX(-9px) rotate(-3deg)}55%{transform:translateX(8px) rotate(3deg)}80%{transform:translateX(-4px)}}
+@keyframes candado-cabezazo{0%,100%{transform:translateY(0)}45%{transform:translateY(-5px) scale(1.03)}}
+.candado.is-denegado .candado-ceja{animation:candado-ceño .4s}
+@keyframes candado-ceño{0%,100%{transform:none}50%{transform:translateY(2px)}}
+.ruleta{position:relative;width:min(84vw,300px);aspect-ratio:1;display:flex;align-items:center;justify-content:center;margin-top:20px}
+.ruleta-cuernos{position:absolute;top:-9%;left:50%;translate:-50% 0;width:100%;z-index:2;pointer-events:none}
+.ruleta-disco{position:relative;z-index:1;width:100%;height:100%;transform:rotate(var(--giro,0deg))}
+.ruleta-disco.is-girando{animation:ruleta-giro var(--dur,4200ms) cubic-bezier(.12,.62,.1,1) forwards}
+@keyframes ruleta-giro{from{transform:rotate(var(--desde,0deg))}to{transform:rotate(var(--giro,1080deg))}}
+.ruleta.is-girando .ruleta-cuernos{animation:ruleta-cuernos-eco var(--dur,4200ms) ease-out}
+@keyframes ruleta-cuernos-eco{0%,100%{transform:none}20%{transform:rotate(-3deg)}40%{transform:rotate(3deg)}}
+.ruleta-centro{position:absolute;top:50%;left:50%;translate:-50% -50%;z-index:3;pointer-events:none}
+.ruleta-flecha{position:absolute;top:-2%;left:50%;margin-left:-31px;z-index:4;transform-origin:50% 8%;pointer-events:none}
+.ruleta.is-girando .ruleta-flecha{animation:ruleta-flecha var(--dur,4200ms) ease-in-out}
+@keyframes ruleta-flecha{0%,86%,100%{transform:rotate(0)}89%{transform:rotate(-9deg)}92%{transform:rotate(6deg)}95%{transform:rotate(-4deg)}}
+.sello-pum{animation:sello .5s cubic-bezier(.2,1.6,.35,1) both}
+@keyframes sello{0%{opacity:0;transform:scale(2.1) rotate(-24deg)}60%{opacity:1;transform:scale(.92) rotate(-6deg)}80%{transform:scale(1.06) rotate(-10deg)}100%{opacity:1;transform:scale(1) rotate(-8deg)}}
+.av{position:relative;border-radius:12px;overflow:hidden;background:#120c1c;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.av svg{width:100%;height:100%;display:block}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.top h2{font-family:'Luckiest Guy',Impact,sans-serif;font-size:26px;color:var(--amarillo)}
+.lockico{font-size:11px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
+.sub{color:var(--mut);font-size:12.5px;margin:0 0 12px}
+.cast{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.chip{display:flex;flex-direction:column;align-items:center;gap:3px;width:50px}
+.chip .av{width:42px;height:42px}
+.chip b{font-size:9px;color:var(--mut);font-weight:600}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.gcard{position:relative;background:var(--pnl);border:2px solid var(--linea);border-radius:16px;padding:14px 13px;min-height:126px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;overflow:hidden}
+.gcard .ic{font-size:20px;color:var(--rojo);line-height:1}
+.gcard h3{font-size:15.5px;margin-top:9px;font-family:'Luckiest Guy',Impact,sans-serif;letter-spacing:.03em;color:var(--crema)}
+.gcard p{font-size:11px;color:var(--mut);margin:3px 0 0;line-height:1.3}
+.gcard.locked{opacity:.6}
+.gcard .pad{position:absolute;top:9px;right:9px}
+.gcard .pad svg{width:26px;height:auto}
+.gcard:active{transform:scale(.98)}
+.bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:8px}
+.back{border:2px solid var(--linea);background:var(--pnl);color:var(--tx);width:40px;height:40px;border-radius:11px;font-size:18px;cursor:pointer}
+.who{display:flex;align-items:center;gap:9px}
+.who .av{width:40px;height:40px}
+.who b{font-size:14px;display:block}
+.who i{font-style:normal;font-size:10px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
+.card{position:relative;background:linear-gradient(165deg,var(--pnl2),var(--pnl));border:3px solid var(--linea);border-radius:18px;padding:20px 18px;flex:1;display:flex;flex-direction:column;justify-content:center;min-height:250px}
+.card .tag{font-family:'Luckiest Guy',Impact,sans-serif;font-size:12px;letter-spacing:.22em;color:var(--amarillo);margin-bottom:10px}
+.card .txt{font-size:20px;line-height:1.38;font-weight:600}
+.card .txt b{color:var(--amarillo)}
+.card .duo{display:flex;gap:7px;margin-top:14px}
+.card .duo .av{width:36px;height:36px}
+.acts{display:flex;gap:9px;margin-top:12px}
+.btn{display:block;width:100%;border:3px solid var(--tinta);border-radius:14px;padding:14px;font-size:15px;font-weight:800;font-family:'Luckiest Guy',Impact,sans-serif;letter-spacing:.05em;background:var(--amarillo);color:var(--tinta);cursor:pointer;box-shadow:0 5px 0 var(--tinta)}
+.btn:active{box-shadow:0 1px 0 var(--tinta);translate:0 4px}
+.btn.ghost{background:var(--pnl);color:var(--crema);border-color:var(--linea);box-shadow:0 5px 0 var(--tinta)}
+.btn.rojo{background:var(--rojo);color:var(--crema)}
+.btn.sm{padding:11px;font-size:13px}
+.acts .btn{flex:1}
+.center{text-align:center;align-items:center;justify-content:center}
+.big{font-family:'Luckiest Guy',Impact,sans-serif;font-size:74px;line-height:1;color:var(--amarillo)}
+.hint{color:var(--mut);font-size:12px;text-align:center;margin-top:12px}
+.roul{display:flex;justify-content:center}
+.legend{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.legend .chip{width:44px}
+.legend .chip .av{width:30px;height:30px;border-radius:8px}
+.legend .chip b{font-size:8px}
+.sello{position:absolute;left:50%;top:50%;translate:-50% -50%;width:230px;max-width:82%;pointer-events:none;z-index:5}
+.ov{position:fixed;inset:0;background:rgba(10,7,15,.9);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:18px;z-index:60}
+.ov.on{display:flex}
+.box{background:var(--pnl);border:3px solid var(--linea);border-radius:18px;padding:20px;width:100%;max-width:360px;max-height:88vh;overflow:auto;text-align:center}
+.box h3{font-family:'Luckiest Guy',Impact,sans-serif;font-size:20px;color:var(--amarillo);margin-bottom:6px}
+.box p{color:var(--mut);font-size:12.5px;margin:0 0 14px}
+.box .candado svg{width:74px;height:auto;margin-bottom:8px}
+input[type=text]{width:100%;background:#140e1e;border:2px solid var(--linea);color:var(--crema);border-radius:11px;padding:13px;font-size:17px;font-family:inherit;text-align:center;letter-spacing:.28em;text-transform:lowercase}
+input[type=range]{width:100%;accent-color:var(--rojo)}
+.fld{margin:12px 0;text-align:left}
+.fld label{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-bottom:5px}
+.fld label b{color:var(--amarillo)}
+.err{color:var(--rojo);font-size:12px;margin-top:7px;min-height:15px}
+.shake{animation:sh .3s}
+@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+table{width:100%;font-size:12.5px;border-collapse:collapse}
+td{padding:4px 0;color:var(--mut);text-align:left}
+td:last-child{text-align:right;color:var(--amarillo);font-weight:700}
+@media (prefers-reduced-motion:reduce){
+.ap-letra,.ap-subtitulo,.ap-boton,.ap-bombilla,.pp-entra-dcha,.pp-sale-izq,.pp-entra-izq,.pp-sale-dcha,.carta-entra,.impacto-tiembla,.candado,.candado-arco,.candado-cuerpo,.candado-ceja,.candado-pupila,.ruleta-cuernos,.ruleta-flecha,.sello-pum{animation:none!important;opacity:1!important;transform:none!important}
+.ruleta-disco.is-girando{animation:ruleta-giro var(--dur,4200ms) cubic-bezier(.12,.62,.1,1) forwards!important}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <section class="screen on" id="cover">
+    <section class="ap-portada">
+      <svg class="ap-portada-fondo" viewBox="0 0 752 1344" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22142f"/><stop offset=".5" stop-color="#3a1d3a"/><stop offset="1" stop-color="#5a2433"/></linearGradient>
+          <linearGradient id="luz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD23F" stop-opacity=".95"/><stop offset="1" stop-color="#FFD23F" stop-opacity=".35"/></linearGradient>
+        </defs>
+        <rect width="752" height="1344" fill="url(#cielo)"/>
+        <circle cx="628" cy="150" r="70" fill="#FFE9C7" opacity=".92"/>
+        <circle cx="600" cy="128" r="62" fill="#3a1d3a" opacity=".5"/>
+        <g fill="#FFE9C7"><circle cx="92" cy="96" r="3"/><circle cx="214" cy="158" r="2.4"/><circle cx="398" cy="74" r="3"/><circle cx="512" cy="196" r="2"/><circle cx="152" cy="252" r="2.4"/><circle cx="330" cy="228" r="2"/><circle cx="700" cy="296" r="3"/><circle cx="62" cy="392" r="2"/><circle cx="462" cy="322" r="2.4"/><circle cx="560" cy="88" r="2"/></g>
+        <g fill="#160d22"><path d="M0 700 L72 616 L146 700Z"/><path d="M112 726 L204 606 L296 726Z"/><path d="M598 700 L680 596 L752 700Z"/><path d="M516 742 L590 658 L662 742Z"/></g>
+        <path d="M118 792 V566 L182 498 L246 566 V792Z" fill="#2b1a3c"/>
+        <rect x="148" y="604" width="42" height="42" fill="url(#luz)"/><rect x="148" y="686" width="42" height="42" fill="url(#luz)" opacity=".7"/>
+        <rect x="296" y="706" width="336" height="300" rx="8" fill="#3d2749"/>
+        <path d="M264 708 L464 558 L664 708Z" fill="#8c3b2e"/>
+        <rect x="346" y="786" width="74" height="74" fill="url(#luz)"/><rect x="508" y="786" width="74" height="74" fill="url(#luz)" opacity=".8"/>
+        <rect x="428" y="866" width="84" height="140" fill="#22142f"/>
+        <path d="M418 866 L470 828 L522 866Z" fill="#8c3b2e"/>
+        <path d="M0 1344 L0 1010 Q376 936 752 1010 L752 1344Z" fill="#1a1124"/>
+        <g fill="none" stroke="#1A1026" stroke-width="2"><path d="M40 560 Q376 660 712 560"/></g>
+        <g><circle cx="120" cy="592" r="6" fill="#FFD23F" opacity=".9"/><circle cx="230" cy="620" r="6" fill="#FF3B30" opacity=".9"/><circle cx="340" cy="636" r="6" fill="#2EC8FF" opacity=".9"/><circle cx="450" cy="638" r="6" fill="#FFD23F" opacity=".9"/><circle cx="560" cy="624" r="6" fill="#FF4FA3" opacity=".9"/><circle cx="660" cy="596" r="6" fill="#39D353" opacity=".9"/></g>
+        <g><circle cx="182" cy="1058" r="34" fill="#FF3B30" stroke="#1A1026" stroke-width="4"/><circle cx="182" cy="1036" r="26" fill="#FFE9C7"/><circle cx="174" cy="1034" r="5" fill="#1A1026"/><circle cx="192" cy="1034" r="5" fill="#1A1026"/><path d="M170 1050 Q182 1060 194 1048" fill="none" stroke="#1A1026" stroke-width="3.5" stroke-linecap="round"/></g>
+        <g><circle cx="302" cy="1098" r="30" fill="#9B5CFF" stroke="#1A1026" stroke-width="4"/><circle cx="302" cy="1080" r="23" fill="#FFE9C7"/><circle cx="295" cy="1078" r="4" fill="#1A1026"/><circle cx="310" cy="1078" r="4" fill="#1A1026"/><path d="M293 1090 Q302 1098 311 1088" fill="none" stroke="#1A1026" stroke-width="3" stroke-linecap="round"/></g>
+        <g><circle cx="422" cy="1058" r="32" fill="#39D353" stroke="#1A1026" stroke-width="4"/><circle cx="422" cy="1039" r="25" fill="#FFE9C7"/><circle cx="414" cy="1037" r="4.5" fill="#1A1026"/><circle cx="431" cy="1037" r="4.5" fill="#1A1026"/><path d="M410 1052 Q422 1062 434 1050" fill="none" stroke="#1A1026" stroke-width="3.5" stroke-linecap="round"/></g>
+        <g><circle cx="542" cy="1098" r="30" fill="#FF8A1F" stroke="#1A1026" stroke-width="4"/><circle cx="542" cy="1080" r="23" fill="#FFE9C7"/><circle cx="535" cy="1078" r="4" fill="#1A1026"/><circle cx="550" cy="1078" r="4" fill="#1A1026"/><path d="M533 1090 Q542 1098 551 1088" fill="none" stroke="#1A1026" stroke-width="3" stroke-linecap="round"/></g>
+        <g><circle cx="642" cy="1058" r="26" fill="#2EC8FF" stroke="#1A1026" stroke-width="4"/><circle cx="642" cy="1043" r="20" fill="#FFE9C7"/><circle cx="636" cy="1041" r="3.5" fill="#1A1026"/><circle cx="649" cy="1041" r="3.5" fill="#1A1026"/></g>
+        <g><circle cx="92" cy="1118" r="24" fill="#FF4FA3" stroke="#1A1026" stroke-width="4"/><circle cx="92" cy="1104" r="18" fill="#FFE9C7"/><circle cx="87" cy="1102" r="3.4" fill="#1A1026"/><circle cx="98" cy="1102" r="3.4" fill="#1A1026"/></g>
+        <g><circle cx="700" cy="1128" r="22" fill="#FFD23F" stroke="#1A1026" stroke-width="4"/><circle cx="700" cy="1115" r="17" fill="#FFE9C7"/><circle cx="696" cy="1113" r="3.2" fill="#1A1026"/><circle cx="705" cy="1113" r="3.2" fill="#1A1026"/></g>
+      </svg>
+      <svg class="ap-bombillas" viewBox="0 0 300 60" aria-hidden="true">
+        <path d="M0 6 Q150 52 300 6" fill="none" stroke="#1A1026" stroke-width="2"/>
+        <rect x="14.7" y="7.8" width="4" height="5" fill="#1A1026"/><ellipse class="ap-bombilla" style="--i:0;--c:#FF3B30" cx="16.7" cy="18.8" rx="6" ry="8"/>
+        <rect x="48.0" y="15.8" width="4" height="5" fill="#1A1026"/><ellipse class="ap-bombilla" style="--i:1;--c:#FFD23F" cx="50.0" cy="26.8" rx="6" ry="8"/>
+        <rect x="81.3" y="21.5" width="4" height="5" fill="#1A1026"/><ellipse class="ap-bombilla" style="--i:2;--c:#2EC8FF" cx="83.3" cy="32.5" rx="6" ry="8"/>
+        <rect x="114.7" y="24.9" width="4" height="5" fill="#1A1026"/><ellipse class="ap-bombilla" style="--i:3;--c:#FF4FA3" cx="116.7" cy="35.9" rx="6" ry="8"/>
+        <rect x="148.0" y="26.0" width="4" height="5" fill="#1A1026"/><ellipse class="ap-bombilla" style="--i:4;--c:#39D353" cx="150.0" cy="37.0" rx="6" ry="8"/>
+        <rect x="181.3" y="24.9" width="4" height="5" fill="#1A1026"/><ellipse class="ap-bombilla" style="--i:5;--c:#FF8A1F" cx="183.3" cy="35.9" rx="6" ry="8"/>
+        <rect x="214.7" y="21.5" width="4" height="5" fill="#1A1026"/><ellipse class="ap-bombilla" style="--i:6;--c:#9B5CFF" cx="216.7" cy="32.5" rx="6" ry="8"/>
+        <rect x="248.0" y="15.8" width="4" height="5" fill="#1A1026"/><ellipse class="ap-bombilla" style="--i:7;--c:#FF3B30" cx="250.0" cy="26.8" rx="6" ry="8"/>
+        <rect x="281.3" y="7.8" width="4" height="5" fill="#1A1026"/><ellipse class="ap-bombilla" style="--i:8;--c:#FFD23F" cx="283.3" cy="18.8" rx="6" ry="8"/>
+      </svg>
+      <div class="ap-cabecera">
+        <h1 class="ap-titulo" aria-label="Siete Pecados">
+          <span class="ap-palabra ap-cuernos"><span class="ap-letra" style="--i:0;--r:-5deg">S</span><span class="ap-letra" style="--i:1;--r:15deg">I</span><span class="ap-letra" style="--i:2;--r:-11deg">E</span><span class="ap-letra" style="--i:3;--r:-3deg">T</span><span class="ap-letra" style="--i:4;--r:5deg">E</span></span>
+          <span class="ap-palabra"><span class="ap-letra" style="--i:5;--r:-14deg">P</span><span class="ap-letra" style="--i:6;--r:-13deg">E</span><span class="ap-letra" style="--i:7;--r:11deg">C</span><span class="ap-letra" style="--i:8;--r:2deg">A</span><span class="ap-letra" style="--i:9;--r:-12deg">D</span><span class="ap-letra" style="--i:10;--r:-4deg">O</span><span class="ap-letra" style="--i:11;--r:3deg">S</span></span>
+        </h1>
+        <div class="ap-subtitulo">7 demonios · 1 cortijo · 0 excusas</div>
+      </div>
+      <button class="ap-boton" onclick="go('hub')">JUGAR</button>
+    </section>
+  </section>
+
+  <section class="screen" id="hub">
+    <div class="top"><h2>JUEGOS</h2><span class="lockico" id="lockState">cerrado</span></div>
+    <p class="sub">Un código abre la casa entera.</p>
+    <div class="cast" id="cast"></div>
+    <div class="grid" id="games"></div>
+  </section>
+
+  <section class="screen" id="play">
+    <div class="bar">
+      <button class="back" onclick="go('hub',1)">←</button>
+      <div class="who" id="who"></div>
+      <div style="width:40px"></div>
+    </div>
+    <div id="stage" style="display:flex;flex-direction:column;flex:1"></div>
+  </section>
+
+</div>
+
+<div class="ov" id="lockOv"><div class="box">
+  <div id="candadoOv"></div>
+  <h3>Abrir la casa</h3>
+  <p>Introduce el código de la noche.</p>
+  <input type="text" id="codeIn" maxlength="12" placeholder="código" autocomplete="off">
+  <div class="err" id="lockErr"></div>
+  <button class="btn rojo" onclick="tryCode()">DESBLOQUEAR</button>
+  <button class="btn ghost sm" style="margin-top:8px" onclick="closeOv('lockOv')">Cancelar</button>
+</div></div>
+
+<div class="ov" id="adminOv"><div class="box">
+  <h3>Panel oculto</h3>
+  <p>Nadie lo ve. Aquí mandas tú.</p>
+  <div class="fld"><label>Peso de Ernesto <b id="vEr">1.6</b></label><input type="range" id="rEr" min="0.5" max="4" step="0.1" value="1.6"></div>
+  <div class="fld"><label>Peso de Marina <b id="vMa">1.6</b></label><input type="range" id="rMa" min="0.5" max="4" step="0.1" value="1.6"></div>
+  <div class="fld"><label>Reparto <b id="vEm">medio</b></label><input type="range" id="rEm" min="10" max="90" step="5" value="55"></div>
+  <div class="fld"><label>Código de la noche</label><input type="text" id="codeSet" style="text-align:left;letter-spacing:0" value="rural"></div>
+  <h3 style="font-size:15px;margin:16px 0 6px">Chupitos</h3>
+  <table id="tally"></table>
+  <button class="btn sm" style="margin-top:14px" onclick="saveAdmin()">GUARDAR</button>
+  <button class="btn ghost sm" style="margin-top:8px" onclick="unlockAll();closeOv('adminOv')">Desbloquear todo</button>
+  <button class="btn ghost sm" style="margin-top:8px" onclick="resetAll()">Reiniciar app</button>
+</div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const vib=ms=>{try{navigator.vibrate&&navigator.vibrate(ms)}catch(e){}};
+const rnd=n=>Math.floor(Math.random()*n);
+const D=s=>s.split('~').map(t=>t?String.fromCharCode(...t.split(',').map(Number)):'');
+
+const P={
+emT:D("123,65,125,58,32,191,113,117,233,32,101,115,32,108,111,32,112,114,105,109,101,114,111,32,113,117,101,32,116,101,32,108,108,97,109,97,32,100,101,32,97,108,103,117,105,101,110,32,99,117,97,110,100,111,32,108,101,32,99,111,110,111,99,101,115,63~123,66,125,58,32,191,116,101,32,99,117,101,115,116,97,32,100,97,114,32,101,108,32,112,114,105,109,101,114,32,112,97,115,111,32,111,32,101,115,112,101,114,97,115,32,97,32,113,117,101,32,108,111,32,100,101,110,63~123,65,125,58,32,191,113,117,233,32,116,101,32,104,97,32,108,108,97,109,97,100,111,32,100,101,32,97,108,103,117,105,101,110,32,100,101,32,101,115,116,97,32,99,97,115,97,63,32,85,110,97,32,115,111,108,97,32,99,111,115,97,46~123,66,125,58,32,115,105,32,116,117,118,105,101,114,97,115,32,113,117,101,32,100,101,115,99,114,105,98,105,114,32,97,32,97,108,103,117,105,101,110,32,100,101,32,101,115,116,97,32,109,101,115,97,32,99,111,110,32,117,110,97,32,112,97,108,97,98,114,97,44,32,191,99,117,225,108,32,121,32,112,97,114,97,32,113,117,105,233,110,63~123,65,125,58,32,191,113,117,233,32,116,101,32,100,97,32,109,225,115,32,99,111,114,116,101,44,32,104,97,98,108,97,114,32,112,114,105,109,101,114,111,32,111,32,113,117,101,32,116,101,32,104,97,98,108,101,110,63~123,66,125,58,32,191,99,243,109,111,32,115,101,32,110,111,116,97,32,113,117,101,32,97,108,103,117,105,101,110,32,116,101,32,103,117,115,116,97,63,32,191,81,117,233,32,104,97,99,101,115,32,116,250,63~123,65,125,58,32,100,105,32,97,108,103,111,32,113,117,101,32,116,101,32,104,97,121,97,32,108,108,97,109,97,100,111,32,100,101,32,123,66,125,44,32,115,105,110,32,113,117,101,32,115,117,101,110,101,32,97,32,110,97,100,97,46~123,66,125,58,32,191,113,117,233,32,116,101,32,104,97,32,115,111,114,112,114,101,110,100,105,100,111,32,100,101,32,108,97,32,103,101,110,116,101,32,100,101,32,101,115,116,97,32,99,97,115,97,63"),
+emD:D("123,66,125,58,32,115,105,233,110,116,97,116,101,32,97,108,32,108,97,100,111,32,100,101,32,123,65,125,32,104,97,115,116,97,32,116,117,32,112,114,243,120,105,109,111,32,116,117,114,110,111,46~123,65,125,58,32,100,105,108,101,32,97,32,123,66,125,32,97,108,103,111,32,113,117,101,32,108,101,32,113,117,101,100,101,32,98,105,101,110,44,32,115,105,110,32,112,101,110,115,97,114,46~123,66,125,58,32,115,117,115,250,114,114,97,108,101,32,97,32,123,65,125,32,97,108,32,111,237,100,111,32,108,111,32,112,114,105,109,101,114,111,32,113,117,101,32,115,101,32,116,101,32,112,97,115,101,46~123,65,125,32,121,32,123,66,125,58,32,117,110,32,97,98,114,97,122,111,32,100,101,32,49,48,32,115,101,103,117,110,100,111,115,46~123,66,125,58,32,99,111,103,101,32,97,32,123,65,125,32,100,101,108,32,98,114,97,122,111,32,104,97,115,116,97,32,113,117,101,32,97,99,97,98,101,32,108,97,32,114,111,110,100,97,46~123,65,125,58,32,98,101,115,97,32,97,32,123,66,125,32,101,110,32,108,97,32,109,101,106,105,108,108,97,46~123,66,125,58,32,101,108,105,103,101,32,97,32,123,65,125,32,112,97,114,97,32,108,111,32,113,117,101,32,113,117,105,101,114,97,115,32,101,108,32,114,101,115,116,111,32,100,101,32,108,97,32,114,111,110,100,97,46~123,66,125,58,32,98,101,115,111,32,101,110,32,108,97,32,109,101,106,105,108,108,97,32,97,32,123,65,125,59,32,115,105,32,108,111,115,32,100,111,115,32,113,117,101,114,233,105,115,44,32,101,110,32,108,97,32,98,111,99,97,46"),
+pairT:D("123,65,125,58,32,191,113,117,233,32,101,115,32,108,111,32,113,117,101,32,109,225,115,32,116,101,32,112,111,110,101,32,100,101,32,123,66,125,63~123,66,125,58,32,99,117,101,110,116,97,32,108,97,32,250,108,116,105,109,97,32,118,101,122,32,113,117,101,32,112,101,110,115,97,115,116,101,32,101,110,32,123,65,125,32,121,32,116,101,32,116,117,118,105,115,116,101,32,113,117,101,32,99,111,110,116,101,110,101,114,46~123,65,125,58,32,191,100,243,110,100,101,32,116,101,32,103,117,115,116,97,114,237,97,32,113,117,101,32,123,66,125,32,116,101,32,116,111,99,97,114,97,32,97,104,111,114,97,32,109,105,115,109,111,63~123,66,125,58,32,191,113,117,233,32,116,101,32,100,97,32,109,225,115,32,118,101,114,103,252,101,110,122,97,32,113,117,101,32,116,101,32,104,97,103,97,32,123,65,125,32,100,101,108,97,110,116,101,32,100,101,32,111,116,114,111,115,63~123,65,125,58,32,99,111,110,102,105,101,115,97,32,117,110,97,32,102,97,110,116,97,115,237,97,32,113,117,101,32,110,111,32,108,101,32,104,97,115,32,99,111,110,116,97,100,111,32,97,32,123,66,125,46~123,66,125,58,32,191,113,117,233,32,104,97,114,237,97,115,32,99,111,110,32,123,65,125,32,115,105,32,101,115,116,97,32,99,97,115,97,32,102,117,101,114,97,32,115,111,108,111,32,118,117,101,115,116,114,97,63"),
+pairD:D("123,65,125,32,121,32,123,66,125,58,32,49,53,32,115,101,103,117,110,100,111,115,32,100,101,32,98,101,115,111,44,32,99,111,110,32,109,97,110,111,115,46~123,65,125,58,32,109,117,101,114,100,101,32,115,117,97,118,101,109,101,110,116,101,32,101,108,32,99,117,101,108,108,111,32,100,101,32,123,66,125,46~123,66,125,58,32,112,111,110,116,101,32,97,32,104,111,114,99,97,106,97,100,97,115,32,115,111,98,114,101,32,123,65,125,32,49,48,32,115,101,103,117,110,100,111,115,46~123,65,125,32,121,32,123,66,125,58,32,115,117,115,117,114,114,97,111,115,32,97,108,32,111,237,100,111,32,108,111,32,113,117,101,32,104,97,114,237,97,105,115,32,97,108,32,108,108,101,103,97,114,32,97,32,99,97,115,97,46~123,66,125,58,32,113,117,237,116,97,108,101,32,97,32,123,65,125,32,117,110,97,32,112,114,101,110,100,97,32,40,108,97,32,113,117,101,32,101,108,105,106,97,115,41,46~123,65,125,32,121,32,123,66,125,58,32,97,98,114,97,122,97,111,115,32,100,101,32,102,114,101,110,116,101,32,121,32,110,111,32,111,115,32,115,101,112,97,114,233,105,115,32,104,97,115,116,97,32,113,117,101,32,98,101,98,97,32,111,116,114,111,46"),
+ggT:D("123,65,125,58,32,191,99,111,110,32,113,117,233,32,99,104,105,99,97,32,100,101,32,97,113,117,237,32,116,101,32,105,114,237,97,115,32,100,101,32,100,101,115,112,117,233,115,32,121,32,112,111,114,32,113,117,233,63~123,66,125,58,32,191,97,108,103,117,110,97,32,118,101,122,32,104,97,115,32,98,101,115,97,100,111,32,97,32,117,110,97,32,99,104,105,99,97,63,32,67,117,101,110,116,97,46~123,65,125,58,32,191,113,117,233,32,116,101,32,103,117,115,116,97,32,109,225,115,32,100,101,32,123,66,125,32,102,237,115,105,99,97,109,101,110,116,101,63~123,66,125,58,32,191,97,32,113,117,105,233,110,32,100,101,32,108,97,115,32,100,101,32,97,113,117,237,32,108,101,32,100,97,114,237,97,115,32,117,110,32,98,101,115,111,32,97,104,111,114,97,63~123,65,125,58,32,191,112,114,101,102,101,114,105,114,237,97,115,32,118,101,114,32,111,32,112,97,114,116,105,99,105,112,97,114,63,32,69,120,112,108,237,99,97,116,101,46~123,66,125,58,32,99,117,101,110,116,97,32,117,110,32,115,117,101,241,111,32,99,111,110,32,117,110,97,32,99,104,105,99,97,46"),
+ggD:D("123,65,125,32,121,32,123,66,125,58,32,98,101,115,111,32,100,101,32,53,32,115,101,103,117,110,100,111,115,46~123,66,125,58,32,100,97,108,101,32,97,32,123,65,125,32,117,110,32,98,101,115,111,32,101,110,32,101,108,32,101,115,99,111,116,101,32,111,32,101,110,32,101,108,32,99,117,101,108,108,111,46~123,65,125,58,32,115,105,233,110,116,97,116,101,32,101,110,32,101,108,32,114,101,103,97,122,111,32,100,101,32,123,66,125,46~123,65,125,32,121,32,123,66,125,58,32,109,105,114,97,100,32,97,32,108,111,115,32,111,106,111,115,32,121,32,100,101,99,105,100,32,113,117,233,32,104,97,114,237,97,105,115,44,32,108,97,115,32,100,111,115,32,97,32,108,97,32,118,101,122,46~123,66,125,58,32,113,117,237,116,97,108,101,32,97,32,123,65,125,32,117,110,97,32,112,114,101,110,100,97,46~123,65,125,32,121,32,123,66,125,58,32,97,98,114,97,122,97,111,115,32,99,111,109,111,32,115,105,32,102,117,101,114,97,105,115,32,112,97,114,101,106,97,32,104,97,115,116,97,32,101,108,32,112,114,243,120,105,109,111,32,116,117,114,110,111,46"),
+bbT:["{A}: ¿qué es lo que más envidia de {B}?","{B}: ¿cuál es tu peor anécdota con {A}?","{A}: ¿qué le pedirías a {B} si fuera tu criado una noche?","{B}: ¿a quién de aquí le pegaría más de ser tu jefe?"],
+bbD:["{A} y {B}: abrazo de 10 segundos.","{B}: dale un masaje de hombros a {A} durante una ronda.","{A}: imita a {B} durante un minuto.","{A} y {B}: chocad los cinco como si ganarais la final, tres veces."],
+crossT:["{A}: ¿qué es lo primero que te fijaste de {B}?","{B}: ¿le pedirías a {A} un consejo sobre tu pareja?","{A}: ¿en qué se parece {B} a tu pareja y en qué no?","{B}: si tuvieras que cambiar de pareja una noche, ¿elegirías a {A}?","{A}: cuenta una cosa que le dirías a {B} si no hubiera nadie más."],
+crossD:["{A} y {B}: abrazo de 5 segundos.","{B}: dile a {A} algo bonito a la cara.","{A}: baila con {B} un minuto sin música.","{A} y {B}: choca los cinco y mirad a los ojos sin reíros.","{B}: hazle un cumplido a {A} que no hayas dicho nunca a nadie."],
+soloFT:["{A}: ¿cuál es tu punto más débil?","{A}: ¿qué es lo primero que miras en alguien?","{A}: ¿qué es lo más atrevido que has hecho?","{A}: ¿te cuesta disimular cuando alguien te gusta?","{A}: ¿qué te pondría más que te hablaran al oído?","{A}: ¿qué te gana antes, una mirada o una broma?"],
+soloFD:["{A}: ponte de pie y haz tu mejor pose de seducción.","{A}: bébete un chupito con quien elija el grupo.","{A}: quítate una prenda a ciegas, sin espejo.","{A}: elige a alguien y dale un beso en la mejilla. Tú decides a quién.","{A}: dile a alguien del grupo algo que le quede bien, mirándole."],
+soloMT:["{A}: ¿cuál es tu récord en una noche?","{A}: ¿qué te da más vergüenza hacer delante de gente?","{A}: ¿qué es lo más raro que te ha puesto?"],
+soloMD:["{A}: bébete medio chupito de un tirón.","{A}: canta el estribillo de una canción que todos sepan.","{A}: haz 10 flexiones o bebe."],
+yn:["Yo nunca... he mentido sobre mi edad.","Yo nunca... he fingido que me gustaba un regalo.","Yo nunca... me he quedado dormido en una fiesta.","Yo nunca... he mandado un mensaje y me he arrepentido.","Yo nunca... he mirado el móvil de mi pareja.","Yo nunca... he vuelto con un ex.","Yo nunca... he dicho te quiero sin sentirlo del todo.","Yo nunca... me he fijado en alguien de esta mesa y he disimulado.","Yo nunca... he besado a alguien la primera noche.","Yo nunca... he estado a punto de algo con alguien de esta casa.","Yo nunca... he dormido en la misma cama con tres personas.","Yo nunca... he mandado una foto que no debía.","Yo nunca... he fingido en la cama.","Yo nunca... me he arrepentido de un beso la mañana siguiente.","Yo nunca... he pensado en un ex durante."],
+cl:[["Imita a alguien del grupo hasta que lo adivinen.","Habla con acento extranjero durante tres rondas.","Bébete un chupito sin usar las manos.","Deja que la persona a tu derecha te despeine."],["Da tres besos: uno en la mano, uno en el cuello y uno donde elijas.","Baila pegado con quien no sea tu pareja, un minuto.","Cuenta tu última fantasía sin decir nombres y que la adivinen.","Deja que el grupo te ponga un apodo y no te quejes en toda la noche."],["Beso de 10 segundos con quien diga el grupo.","Quítate una prenda y no te la vuelvas a poner.","Susúrrale al oído a alguien lo que le harías. Sin repetir persona.","Siéntate en el regazo de quien tú elijas y quédate hasta tu próximo turno."]]};
+
+const AV={
+er:'<svg viewBox="0 0 240 240"><defs><linearGradient id="ger" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a1a20"/><stop offset="1" stop-color="#1a0e12"/></linearGradient></defs><rect width="240" height="240" fill="url(#ger)"/><path d="M56 96 L30 22 L92 70Z M184 96 L210 22 L148 70Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="8" stroke-linejoin="round"/><path d="M64 100 L46 52 L88 82Z M176 100 L194 52 L152 82Z" fill="#FF8A1F"/><circle cx="120" cy="140" r="66" fill="#FF3B30" stroke="#1A1026" stroke-width="8"/><path d="M72 122 L104 134 L100 150 L76 146Z M168 122 L136 134 L140 150 L164 146Z" fill="#FFE9C7"/><circle cx="92" cy="140" r="7" fill="#1A1026"/><circle cx="148" cy="140" r="7" fill="#1A1026"/><path d="M66 124 L106 136 M174 124 L134 136" stroke="#1A1026" stroke-width="8" stroke-linecap="round"/><path d="M88 176 Q120 200 152 174 Q142 198 120 199 Q98 198 88 176Z" fill="#1A1026"/><path d="M104 180 L112 181 L108 190Z M136 180 L128 181 L132 190Z" fill="#FFE9C7"/></svg>',
+ma:'<svg viewBox="0 0 240 240"><defs><linearGradient id="gma" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1a44"/><stop offset="1" stop-color="#140e24"/></linearGradient></defs><rect width="240" height="240" fill="url(#gma)"/><path d="M58 118 Q8 82 28 26 Q62 66 88 90Z M182 118 Q232 82 212 26 Q178 66 152 90Z" fill="#C9B6FF" stroke="#1A1026" stroke-width="8" stroke-linejoin="round"/><path d="M62 112 Q30 86 42 46 Q66 74 82 92Z M178 112 Q210 86 198 46 Q174 74 158 92Z" fill="#7a5bc4"/><circle cx="120" cy="142" r="64" fill="#9B5CFF" stroke="#1A1026" stroke-width="8"/><circle cx="94" cy="136" r="11" fill="#FFE9C7"/><circle cx="146" cy="136" r="11" fill="#FFE9C7"/><circle cx="96" cy="138" r="5" fill="#1A1026"/><circle cx="144" cy="138" r="5" fill="#1A1026"/><path d="M84 172 Q120 196 156 168" fill="none" stroke="#1A1026" stroke-width="8" stroke-linecap="round"/></svg>',
+je:'<svg viewBox="0 0 240 240"><defs><linearGradient id="gje" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a3a24"/><stop offset="1" stop-color="#0e1c12"/></linearGradient></defs><rect width="240" height="240" fill="url(#gje)"/><path d="M48 86 Q44 22 78 10 M192 86 Q196 22 162 10" fill="none" stroke="#FFE9C7" stroke-width="16" stroke-linecap="round"/><path d="M48 86 Q44 22 78 10 M192 86 Q196 22 162 10" fill="none" stroke="#1A1026" stroke-width="4" stroke-linecap="round" stroke-dasharray="4 12"/><path d="M34 138 Q14 150 26 172 M206 138 Q226 150 214 172" fill="#39D353" stroke="#1A1026" stroke-width="7"/><circle cx="120" cy="142" r="64" fill="#39D353" stroke="#1A1026" stroke-width="8"/><circle cx="94" cy="134" r="9" fill="#1A1026"/><circle cx="146" cy="134" r="9" fill="#1A1026"/><path d="M80 162 L108 158 L106 184 L84 180Z M160 162 L132 158 L134 184 L156 180Z" fill="#FFE9C7"/><path d="M88 178 L120 202 L152 176" fill="none" stroke="#1A1026" stroke-width="7" stroke-linecap="round"/></svg>',
+al:'<svg viewBox="0 0 240 240"><defs><linearGradient id="gal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2412"/><stop offset="1" stop-color="#1a1008"/></linearGradient></defs><rect width="240" height="240" fill="url(#gal)"/><path d="M192 168 Q236 148 224 100 Q208 140 184 152Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="8" stroke-linejoin="round"/><path d="M224 100 L238 88 L228 116Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="6" stroke-linejoin="round"/><path d="M52 92 L34 26 L86 74Z M188 92 L206 26 L154 74Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="8" stroke-linejoin="round"/><circle cx="116" cy="140" r="64" fill="#FF8A1F" stroke="#1A1026" stroke-width="8"/><circle cx="90" cy="134" r="9" fill="#1A1026"/><circle cx="142" cy="134" r="9" fill="#1A1026"/><path d="M80 172 Q116 200 152 170 Q138 198 116 199 Q94 198 80 172Z" fill="#1A1026"/><path d="M102 182 L112 183 L108 196Z" fill="#FFE9C7"/><circle cx="118" cy="176" r="8" fill="#FF3B30"/></svg>',
+is:'<svg viewBox="0 0 240 240"><defs><linearGradient id="gis" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#12303a"/><stop offset="1" stop-color="#0a1a20"/></linearGradient></defs><rect width="240" height="240" fill="url(#gis)"/><path d="M46 96 L26 28 L84 72Z M194 96 L214 28 L156 72Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="8" stroke-linejoin="round"/><circle cx="120" cy="142" r="64" fill="#2EC8FF" stroke="#1A1026" stroke-width="8"/><circle cx="92" cy="136" r="17" fill="#FFE9C7" stroke="#1A1026" stroke-width="6"/><circle cx="92" cy="136" r="7" fill="#1A1026"/><circle cx="150" cy="136" r="9" fill="#FFE9C7" stroke="#1A1026" stroke-width="6"/><circle cx="150" cy="136" r="4" fill="#1A1026"/><path d="M78 108 L106 114 M132 112 L162 106" stroke="#1A1026" stroke-width="8" stroke-linecap="round"/><path d="M90 180 Q120 198 150 178" fill="none" stroke="#1A1026" stroke-width="7" stroke-linecap="round"/></svg>',
+ce:'<svg viewBox="0 0 240 240"><defs><linearGradient id="gce" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a1a2c"/><stop offset="1" stop-color="#1a0e14"/></linearGradient></defs><rect width="240" height="240" fill="url(#gce)"/><ellipse cx="120" cy="46" rx="42" ry="14" fill="none" stroke="#FFD23F" stroke-width="10"/><circle cx="120" cy="144" r="64" fill="#FF4FA3" stroke="#1A1026" stroke-width="8"/><circle cx="94" cy="136" r="9" fill="#1A1026"/><circle cx="146" cy="136" r="9" fill="#1A1026"/><path d="M74 122 L104 130 M166 122 L136 130" stroke="#1A1026" stroke-width="7" stroke-linecap="round"/><path d="M96 174 Q120 194 144 172" fill="none" stroke="#1A1026" stroke-width="8" stroke-linecap="round"/><circle cx="70" cy="160" r="8" fill="#FF8FA3" opacity=".7"/><circle cx="170" cy="160" r="8" fill="#FF8FA3" opacity=".7"/></svg>',
+mi:'<svg viewBox="0 0 240 240"><defs><linearGradient id="gmi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3212"/><stop offset="1" stop-color="#1a1608"/></linearGradient></defs><rect width="240" height="240" fill="url(#gmi)"/><path d="M120 14 Q150 44 120 78 Q90 44 120 14Z" fill="#FFD23F" stroke="#1A1026" stroke-width="6"/><path d="M120 34 Q136 50 120 68 Q104 50 120 34Z" fill="#FF8A1F"/><circle cx="120" cy="150" r="62" fill="#FFD23F" stroke="#1A1026" stroke-width="8"/><circle cx="94" cy="144" r="9" fill="#1A1026"/><circle cx="146" cy="144" r="9" fill="#1A1026"/><path d="M84 182 Q120 208 156 180" fill="none" stroke="#1A1026" stroke-width="8" stroke-linecap="round"/><path d="M46 150 L30 138 M194 150 L210 138" stroke="#1A1026" stroke-width="7" stroke-linecap="round"/></svg>'};
+
+const CANDADO='<svg class="candado" viewBox="-6 -40 132 180" width="132" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Candado"><g class="candado-arco"><path d="M30 66 V44 a30 30 0 0 1 60 0 V66" fill="none" stroke="#1A1026" stroke-width="20" stroke-linecap="round"/><path d="M30 66 V44 a30 30 0 0 1 60 0 V66" fill="none" stroke="#FFE9C7" stroke-width="13" stroke-linecap="round"/><path d="M30 66 V44 a30 30 0 0 1 60 0 V66" fill="none" stroke="#1A1026" stroke-width="13" stroke-dasharray="2 10"/></g><g class="candado-cuerpo"><path d="M18 70 L2 40 L36 62Z M102 70 L118 40 L84 62Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="4" stroke-linejoin="round"/><rect x="10" y="58" width="100" height="78" rx="18" fill="#FF3B30" stroke="#1A1026" stroke-width="5"/><path d="M26 84 L52 90 L50 100 L30 98Z M94 84 L68 90 L70 100 L90 98Z" fill="#FFE9C7"/><circle class="candado-pupila" cx="44" cy="94" r="3.6" fill="#1A1026"/><circle class="candado-pupila" cx="76" cy="94" r="3.6" fill="#1A1026"/><path class="candado-ceja" d="M22 76 L54 87" stroke="#1A1026" stroke-width="6" stroke-linecap="round"/><path class="candado-ceja" d="M98 76 L66 87" stroke="#1A1026" stroke-width="6" stroke-linecap="round"/><path d="M36 110 Q60 128 84 110 Q78 126 60 127 Q42 126 36 110Z" fill="#1A1026"/><circle class="candado-ojo" cx="60" cy="114" r="5" fill="#FF3B30"/><path class="candado-ojo" d="M57 116 h6 l-1 7 h-4z" fill="#FF3B30"/><path d="M42 113 L48 114 L45 121Z M78 113 L72 114 L75 121Z" fill="#FFE9C7"/></g></svg>';
+const SELLO='<svg class="sello sello-pum" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="130" cy="130" r="118" fill="none" stroke="#FF3B30" stroke-width="10" stroke-dasharray="14 9"/><circle cx="130" cy="130" r="96" fill="#FF3B30" opacity=".12"/><text x="130" y="118" text-anchor="middle" font-family="Luckiest Guy,Impact" font-size="46" fill="#FF3B30">CHUPITO</text><text x="130" y="168" text-anchor="middle" font-family="Luckiest Guy,Impact" font-size="26" fill="#FF3B30" opacity=".85">NO CUMPLE</text></svg>';
+const RULETA='<div class="ruleta" id="ruleta" style="--dur:4200ms">'
++'<svg class="ruleta-cuernos" viewBox="0 0 300 70" width="300" height="70" aria-hidden="true"><path d="M70 66 C40 50 30 24 40 2 C48 26 68 40 100 46Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="5" stroke-linejoin="round"/><path d="M230 66 C260 50 270 24 260 2 C252 26 232 40 200 46Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="5" stroke-linejoin="round"/></svg>'
++'<svg class="ruleta-disco" viewBox="-15 -15 330 330" width="300" height="300" role="img" aria-label="Ruleta"><circle cx="150" cy="150" r="144" fill="#1A1026"/><path d="M150 150 L150 22 A128 128 0 0 1 250.1 70.2Z" fill="#FF3B30" stroke="#1A1026" stroke-width="5"/><path d="M150 150 L250.1 70.2 A128 128 0 0 1 274.8 178.5Z" fill="#9B5CFF" stroke="#1A1026" stroke-width="5"/><path d="M150 150 L274.8 178.5 A128 128 0 0 1 205.5 265.3Z" fill="#39D353" stroke="#1A1026" stroke-width="5"/><path d="M150 150 L205.5 265.3 A128 128 0 0 1 94.5 265.3Z" fill="#FF8A1F" stroke="#1A1026" stroke-width="5"/><path d="M150 150 L94.5 265.3 A128 128 0 0 1 25.2 178.5Z" fill="#2EC8FF" stroke="#1A1026" stroke-width="5"/><path d="M150 150 L25.2 178.5 A128 128 0 0 1 49.9 70.2Z" fill="#FF4FA3" stroke="#1A1026" stroke-width="5"/><path d="M150 150 L49.9 70.2 A128 128 0 0 1 150 22Z" fill="#FFD23F" stroke="#1A1026" stroke-width="5"/><circle cx="150" cy="150" r="40" fill="#1A1026"/></svg>'
++'<svg class="ruleta-centro" viewBox="0 0 80 80" width="72" height="72" aria-hidden="true"><path d="M20 30 L8 6 L32 22Z M60 30 L72 6 L48 22Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="4" stroke-linejoin="round"/><circle cx="40" cy="44" r="28" fill="#FF3B30" stroke="#1A1026" stroke-width="5"/><path d="M22 38 L37 42 L35 48 L24 47Z M58 38 L43 42 L45 48 L56 47Z" fill="#FFE9C7"/><circle cx="32" cy="45" r="2.6" fill="#1A1026"/><circle cx="48" cy="45" r="2.6" fill="#1A1026"/><path d="M26 55 Q40 66 54 54 Q48 64 40 64 Q31 64 26 55Z" fill="#1A1026"/><path d="M33 57 L37 58 L35 62Z M47 57 L43 58 L45 62Z" fill="#FFE9C7"/></svg>'
++'<svg class="ruleta-flecha" viewBox="0 0 56 76" width="62" height="84" aria-hidden="true"><path d="M28 2 V52 M10 50 V34 Q10 22 28 22 Q46 22 46 34 V50" fill="none" stroke="#1A1026" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 2 V52 M10 50 V34 Q10 22 28 22 Q46 22 46 34 V50" fill="none" stroke="#FFE9C7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 74 L20 50 H36Z M10 64 L3 46 H17Z M46 64 L39 46 H53Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="3.5" stroke-linejoin="round"/></svg>'
++'</div>';
+
+const PL=[{id:'er',n:'Ernesto',g:'m'},{id:'ma',n:'Marina',g:'f'},{id:'je',n:'Jesús',g:'m'},{id:'al',n:'Alba',g:'f'},{id:'is',n:'Ismael',g:'m'},{id:'ce',n:'Celín',g:'f'},{id:'mi',n:'María',g:'f'}];
+const PT={er:'ce',ce:'er',je:'al',al:'je',is:'mi',mi:'is'};
+const byId=id=>PL.find(p=>p.id===id);
+const women=()=>PL.filter(p=>p.g==='f');
+const men=()=>PL.filter(p=>p.g==='m');
+const DEF={code:'rural',em:0.55,er:1.6,ma:1.6,open:false,tally:{}};
+let S=JSON.parse(localStorage.getItem('siete')||'null')||JSON.parse(JSON.stringify(DEF));
+const save=()=>localStorage.setItem('siete',JSON.stringify(S));
+const recent={};
+const emWord=v=>v<45?'suave':v<70?'medio':'alto';
+const av=p=>'<div class="av">'+AV[p.id]+'</div>';
+let cur='cover';
+function go(id,back){if(id===cur)return;const o=document.getElementById(cur),n=document.getElementById(id);if(id==='hub')renderHub();
+n.classList.add('on',back?'pp-entra-izq':'pp-entra-dcha');o.classList.add(back?'pp-sale-dcha':'pp-sale-izq');cur=id;
+setTimeout(()=>o.classList.remove('on','pp-sale-dcha','pp-sale-izq'),250);setTimeout(()=>n.classList.remove('pp-entra-izq','pp-entra-dcha'),280);n.scrollTop=0}
+function closeOv(id){document.getElementById(id).classList.remove('on')}
+const GAMES=[{id:'ruleta',n:'La Ruleta',d:'Gira y que decida el tridente.',ic:'◎'},{id:'vd',n:'Verdad o Reto',d:'Responde o hazlo. Si no, chupito.',ic:'✦'},{id:'nunca',n:'Yo Nunca',d:'Si te aplica, bebes.',ic:'◍'},{id:'dedo',n:'El Dedo',d:'A la de tres, todos señalan.',ic:'☝'},{id:'ciego',n:'Reto a Ciegas',d:'Nivel 1, 2 o 3. Sin saber qué viene.',ic:'▣'}];
+function renderHub(){document.getElementById('lockState').textContent=S.open?'abierto':'cerrado';
+document.getElementById('cast').innerHTML=PL.map(p=>`<div class="chip">${av(p)}<b>${p.n}</b></div>`).join('');
+document.getElementById('games').innerHTML=GAMES.map(g=>`<div class="gcard ${S.open?'':'locked'}" onclick="openGame('${g.id}')">${S.open?'':'<span class="pad">'+CANDADO+'</span>'}<div class="ic">${g.ic}</div><div><h3>${g.n}</h3><p>${g.d}</p></div></div>`).join('')}
+let pending=null;
+function openGame(id){if(!S.open){pending=id;document.getElementById('candadoOv').innerHTML=CANDADO;document.getElementById('codeIn').value='';document.getElementById('lockErr').textContent='';document.getElementById('lockOv').classList.add('on');return}launch(id)}
+function tryCode(){const v=document.getElementById('codeIn').value.trim().toLowerCase(),box=document.querySelector('#lockOv .box');
+if(v===S.code.toLowerCase()){const c=document.querySelector('#candadoOv .candado');if(c)c.classList.add('is-abierto');vib(40);
+setTimeout(()=>{closeOv('lockOv');unlockAll();if(pending)launch(pending);pending=null},420)}
+else{const c=document.querySelector('#candadoOv .candado');if(c){c.classList.remove('is-denegado');void c.offsetWidth;c.classList.add('is-denegado')}
+document.getElementById('lockErr').textContent='No es ese.';box.classList.remove('shake');void box.offsetWidth;box.classList.add('shake');vib(70)}}
+function unlockAll(){S.open=true;save();renderHub()}
+function take(pool){const arr=P[pool]||[];if(!arr.length)return '…';let h=recent[pool]||(recent[pool]=[]);let cand=arr.filter(x=>!h.includes(x));if(!cand.length){recent[pool]=[];cand=arr}
+const c=cand[rnd(cand.length)];h.push(c);if(h.length>Math.ceil(arr.length*.6))h.shift();return c}
+const fill=(t,a,b)=>t.replace(/\{A\}/g,a?a.n:'').replace(/\{B\}/g,b?b.n:'');
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function pickActive(){const pool=[];PL.forEach(p=>{const w=p.id==='er'?S.er:p.id==='ma'?S.ma:1;for(let i=0;i<Math.round(w*2);i++)pool.push(p)});return pool[rnd(pool.length)]}
+function focusFor(a){const r=Math.random(),e=S.em;
+if(a.id==='er'){if(r<e)return{pool:'em',t:byId('ma')};if(r<e+.12)return{pool:'pair',t:byId('ce')};if(r<e+.22)return{pool:'cross',t:women().filter(x=>x.id!=='ma'&&x.id!=='ce')[rnd(2)]};return{pool:'soloM',t:null}}
+if(a.id==='ma'){if(r<e)return{pool:'em',t:byId('er')};if(r<e+.25)return{pool:'gg',t:women().filter(x=>x.id!=='ma')[rnd(3)]};return{pool:'soloF',t:null}}
+if(a.g==='f'){if(r<.35)return{pool:'pair',t:byId(PT[a.id])};if(r<.6)return{pool:'gg',t:women().filter(x=>x.id!==a.id)[rnd(3)]};if(r<.8)return{pool:'cross',t:men().filter(x=>x.id!==PT[a.id])[rnd(3)]};return{pool:'soloF',t:null}}
+if(r<.4)return{pool:'pair',t:byId(PT[a.id])};if(r<.65)return{pool:'bb',t:men().filter(x=>x.id!==a.id)[rnd(2)]};if(r<.85)return{pool:'cross',t:women().filter(x=>x.id!==PT[a.id])[rnd(3)]};return{pool:'soloM',t:null}}
+const stage=()=>document.getElementById('stage');
+function launch(id){document.getElementById('who').innerHTML='';if(id==='vd')return startVD(pickActive().id);if(id==='ruleta')return ruleta();if(id==='nunca')return nunca();if(id==='dedo')return dedo();if(id==='ciego')return ciego()}
+function startVD(id){const a=byId(id);document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>turno</i></div>`;
+stage().innerHTML=`<div class="card center carta-entra"><div class="tag">LE TOCA A ${a.n.toUpperCase()}</div><div class="txt" style="font-size:28px;font-family:'Luckiest Guy',Impact,sans-serif">¿VERDAD O RETO?</div><div style="display:flex;gap:9px;margin-top:20px;width:100%"><button class="btn" onclick="playVD('${id}','v')">VERDAD</button><button class="btn ghost" onclick="playVD('${id}','d')">RETO</button></div></div>`}
+function playVD(id,kind){const a=byId(id),f=focusFor(a),b=f.t;const txt=fill(take(f.pool+(kind==='v'?'T':'D')),a,b);vib(18);
+stage().innerHTML=`<div class="card carta-entra" id="cardBox"><div class="tag">${kind==='v'?'VERDAD':'RETO'}${b?' · CON '+b.n.toUpperCase():''}</div><div class="txt">${esc(txt).split(a.n).join('<b>'+a.n+'</b>')}</div>${b?'<div class="duo">'+av(a)+av(b)+'</div>':''}<div id="sipSlot"></div></div><div class="acts"><button class="btn ghost" onclick="sip('${id}')">NO CUMPLE</button><button class="btn" onclick="startVD(pickActive().id)">SIGUIENTE</button></div><p class="hint">Cumplido: siguiente. No cumplido: chupito y siguiente.</p>`}
+function sip(id){S.tally[id]=(S.tally[id]||0)+1;save();vib(60);const slot=document.getElementById('sipSlot'),box=document.getElementById('cardBox');if(!slot)return;
+slot.innerHTML=SELLO;if(box){box.classList.remove('impacto-tiembla');void box.offsetWidth;box.classList.add('impacto-tiembla')}}
+let angulo=0,girando=false;
+function ruleta(){document.getElementById('who').innerHTML='<div><b>La Ruleta</b><i>que decida el tridente</i></div>';
+stage().innerHTML='<div class="roul">'+RULETA+'</div><div class="legend">'+PL.map(p=>`<div class="chip">${av(p)}<b>${p.n}</b></div>`).join('')+'</div><button class="btn" style="margin-top:14px" onclick="girar()">GIRAR</button><p class="hint">Gira. Lo que caiga, se juega.</p>'}
+function girar(){if(girando)return;const disco=document.querySelector('.ruleta-disco'),r=document.getElementById('ruleta');if(!disco)return;girando=true;vib(15);
+const idx=pickActiveIndex(),paso=360/7,sector=idx*paso+paso/2,desde=angulo%360,delta=(360-((sector+desde)%360))%360,fin=angulo+1800+delta;angulo=fin;
+disco.style.setProperty('--desde',desde+'deg');disco.style.setProperty('--giro',fin+'deg');
+disco.classList.remove('is-girando');r.classList.remove('is-girando');void r.offsetWidth;
+disco.classList.add('is-girando');r.classList.add('is-girando');setTimeout(()=>{girando=false;startVD(PL[idx].id)},4250)}
+function pickActiveIndex(){const w=PL.map(p=>p.id==='er'?S.er:p.id==='ma'?S.ma:1);const tot=w.reduce((a,b)=>a+b,0);let r=Math.random()*tot;for(let i=0;i<w.length;i++){r-=w[i];if(r<=0)return i}return 0}
+let deck=[];
+function nunca(){document.getElementById('who').innerHTML='<div><b>Yo Nunca</b><i>si te aplica, bebes</i></div>';if(!deck.length)deck=[...P.yn].sort(()=>Math.random()-.5);nextYN()}
+function nextYN(){if(!deck.length)deck=[...P.yn].sort(()=>Math.random()-.5);const t=deck.pop();
+stage().innerHTML=`<div class="card center carta-entra"><div class="tag">YO NUNCA</div><div class="txt" style="font-size:23px">${esc(t.replace('Yo nunca... ',''))}</div></div><div class="acts"><button class="btn" onclick="nextYN()">SIGUIENTE</button></div><p class="hint">Quien lo haya hecho, bebe. Sin excusas.</p>`}
+function dedo(){document.getElementById('who').innerHTML='<div><b>El Dedo</b><i>todos señalan</i></div>';
+stage().innerHTML=`<div class="card center carta-entra"><div class="big" id="cnt">3</div><p class="hint">Preparad los dedos.</p></div><div class="acts"><button class="btn" onclick="dedoRun()">EMPEZAR</button></div>`}
+function dedoRun(){const c=document.getElementById('cnt');let n=3;vib(20);const t=setInterval(()=>{n--;c.textContent=n>0?n:'¡YA!';vib(30);
+if(n<=0){clearInterval(t);setTimeout(()=>{stage().innerHTML=`<div class="card center carta-entra"><div class="tag">RESULTADO</div><div class="txt" style="font-size:25px">El más señalado bebe.</div><p class="hint">Empate: beben todos los empatados.</p></div><div class="acts"><button class="btn" onclick="dedo()">OTRA</button></div>`},600)}},700)}
+function ciego(){document.getElementById('who').innerHTML='<div><b>Reto a Ciegas</b><i>elige nivel</i></div>';
+stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL</div><div class="txt" style="font-size:22px">Elige la intensidad. No sabrás qué es hasta abrirlo.</div></div><div class="acts" style="margin-top:12px"><button class="btn ghost" onclick="ciegoCard(0)">SUAVE</button><button class="btn" onclick="ciegoCard(1)">MEDIO</button><button class="btn ghost" onclick="ciegoCard(2)">FUERTE</button></div>`}
+function ciegoCard(l){const t=P.cl[l][rnd(P.cl[l].length)];
+stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL ${l+1}</div><div class="big" style="font-size:50px">?</div></div><div class="acts"><button class="btn" onclick="ciegoReveal(${l},this)" data-t="${esc(t).replace(/"/g,'&quot;')}">ABRIR</button></div>`}
+function ciegoReveal(l,btn){vib(40);stage().innerHTML=`<div class="card carta-entra"><div class="tag">NIVEL ${l+1} · RETO</div><div class="txt">${btn.dataset.t}</div></div><div class="acts"><button class="btn" onclick="ciego()">OTRO</button></div>`}
+let lp;
+document.getElementById('cover').addEventListener('pointerdown',()=>{lp=setTimeout(openAdmin,750)});
+['pointerup','pointerleave','pointercancel'].forEach(e=>document.getElementById('cover').addEventListener(e,()=>clearTimeout(lp)));
+function openAdmin(){vib(40);document.getElementById('rEr').value=S.er;document.getElementById('rMa').value=S.ma;document.getElementById('rEm').value=Math.round(S.em*100);
+document.getElementById('vEr').textContent=S.er;document.getElementById('vMa').textContent=S.ma;document.getElementById('vEm').textContent=emWord(Math.round(S.em*100));
+document.getElementById('codeSet').value=S.code;
+const t=Object.entries(S.tally).sort((a,b)=>b[1]-a[1]);
+document.getElementById('tally').innerHTML=t.length?t.map(([id,v])=>`<tr><td>${byId(id)?byId(id).n:id}</td><td>${v}</td></tr>`).join(''):'<tr><td>Nadie todavía</td><td>0</td></tr>';
+document.getElementById('adminOv').classList.add('on')}
+['rEr','rMa','rEm'].forEach(id=>document.getElementById(id).addEventListener('input',e=>{const v=+e.target.value;
+if(id==='rEr'){S.er=v;document.getElementById('vEr').textContent=v.toFixed(1)}
+if(id==='rMa'){S.ma=v;document.getElementById('vMa').textContent=v.toFixed(1)}
+if(id==='rEm'){S.em=v/100;document.getElementById('vEm').textContent=emWord(v)}}));
+function saveAdmin(){const c=document.getElementById('codeSet').value.trim().toLowerCase();if(c)S.code=c;save();closeOv('adminOv');vib(30)}
+function resetAll(){localStorage.removeItem('siete');location.reload()}
+renderHub();
+(function(){
+ try{
+  const ico='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><rect width="240" height="240" fill="#1A1026"/><path d="M56 96 L30 22 L92 70Z M184 96 L210 22 L148 70Z" fill="#FFE9C7"/><circle cx="120" cy="140" r="66" fill="#FF3B30"/><path d="M72 122 L104 134 L100 150 L76 146Z M168 122 L136 134 L140 150 L164 146Z" fill="#FFE9C7"/><circle cx="92" cy="140" r="7" fill="#1A1026"/><circle cx="148" cy="140" r="7" fill="#1A1026"/><path d="M88 176 Q120 200 152 174 Q142 198 120 199 Q98 198 88 176Z" fill="#1A1026"/></svg>');
+  const mf={name:'Siete Pecados',short_name:'Siete Pecados',display:'standalone',orientation:'portrait',background_color:'#1A1026',theme_color:'#1A1026',icons:[{src:ico,sizes:'512x512',type:'image/svg+xml',purpose:'any'}]};
+  const l=document.createElement('link');l.rel='manifest';l.href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify(mf));document.head.appendChild(l);
+  const t=document.createElement('link');t.rel='apple-touch-icon';t.href=ico;document.head.appendChild(t);
+ }catch(e){}
+ if('serviceWorker' in navigator){
+  const code="self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));self.addEventListener('fetch',()=>{});";
+  try{navigator.serviceWorker.register(URL.createObjectURL(new Blob([code],{type:'text/javascript'}))).catch(()=>{})}catch(e){}
+ }
+})();
+</script>
+</body>
+</html>
