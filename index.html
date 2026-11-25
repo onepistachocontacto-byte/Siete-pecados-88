@@ -109,6 +109,9 @@ h1,h2,h3{margin:0;font-weight:800}
 .gcard .pad{position:absolute;top:9px;right:9px}
 .gcard .pad svg{width:26px;height:auto}
 .gcard:active{transform:scale(.98)}
+.gcard.resume{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;gap:11px;border-color:var(--rojo);background:linear-gradient(120deg,#33182a,var(--pnl))}
+.gcard.resume .ic{font-size:22px}
+.gcard.resume h3{margin-top:0}
 .bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:8px}
 .back{border:2px solid var(--linea);background:var(--pnl);color:var(--tx);width:40px;height:40px;border-radius:11px;font-size:18px;cursor:pointer}
 .who{display:flex;align-items:center;gap:9px}
@@ -383,7 +386,7 @@ td:last-child{text-align:right;color:var(--amarillo);font-weight:700}
 
   <section class="screen" id="play">
     <div class="bar">
-      <button class="back" onclick="go('hub',1)">←</button>
+      <button class="back" onclick="exitGame()">←</button>
       <div class="who" id="who"></div>
       <div style="width:40px"></div>
     </div>
@@ -428,7 +431,7 @@ emD:D("123,66,125,58,32,115,105,233,110,116,97,116,101,32,97,108,32,108,97,100,1
 pairT:D("123,65,125,58,32,191,113,117,233,32,101,115,32,108,111,32,113,117,101,32,109,225,115,32,116,101,32,112,111,110,101,32,100,101,32,123,66,125,63~123,66,125,58,32,99,117,101,110,116,97,32,108,97,32,250,108,116,105,109,97,32,118,101,122,32,113,117,101,32,112,101,110,115,97,115,116,101,32,101,110,32,123,65,125,32,121,32,116,101,32,116,117,118,105,115,116,101,32,113,117,101,32,99,111,110,116,101,110,101,114,46~123,65,125,58,32,191,100,243,110,100,101,32,116,101,32,103,117,115,116,97,114,237,97,32,113,117,101,32,123,66,125,32,116,101,32,116,111,99,97,114,97,32,97,104,111,114,97,32,109,105,115,109,111,63~123,66,125,58,32,191,113,117,233,32,116,101,32,100,97,32,109,225,115,32,118,101,114,103,252,101,110,122,97,32,113,117,101,32,116,101,32,104,97,103,97,32,123,65,125,32,100,101,108,97,110,116,101,32,100,101,32,111,116,114,111,115,63~123,65,125,58,32,99,111,110,102,105,101,115,97,32,117,110,97,32,102,97,110,116,97,115,237,97,32,113,117,101,32,110,111,32,108,101,32,104,97,115,32,99,111,110,116,97,100,111,32,97,32,123,66,125,46~123,66,125,58,32,191,113,117,233,32,104,97,114,237,97,115,32,99,111,110,32,123,65,125,32,115,105,32,101,115,116,97,32,99,97,115,97,32,102,117,101,114,97,32,115,111,108,111,32,118,117,101,115,116,114,97,63"),
 pairD:D("123,65,125,32,121,32,123,66,125,58,32,49,53,32,115,101,103,117,110,100,111,115,32,100,101,32,98,101,115,111,44,32,99,111,110,32,109,97,110,111,115,46~123,65,125,58,32,109,117,101,114,100,101,32,115,117,97,118,101,109,101,110,116,101,32,101,108,32,99,117,101,108,108,111,32,100,101,32,123,66,125,46~123,66,125,58,32,112,111,110,116,101,32,97,32,104,111,114,99,97,106,97,100,97,115,32,115,111,98,114,101,32,123,65,125,32,49,48,32,115,101,103,117,110,100,111,115,46~123,65,125,32,121,32,123,66,125,58,32,115,117,115,117,114,114,97,111,115,32,97,108,32,111,237,100,111,32,108,111,32,113,117,101,32,104,97,114,237,97,105,115,32,97,108,32,108,108,101,103,97,114,32,97,32,99,97,115,97,46~123,66,125,58,32,113,117,237,116,97,108,101,32,97,32,123,65,125,32,117,110,97,32,112,114,101,110,100,97,32,40,108,97,32,113,117,101,32,101,108,105,106,97,115,41,46~123,65,125,32,121,32,123,66,125,58,32,97,98,114,97,122,97,111,115,32,100,101,32,102,114,101,110,116,101,32,121,32,110,111,32,111,115,32,115,101,112,97,114,233,105,115,32,104,97,115,116,97,32,113,117,101,32,98,101,98,97,32,111,116,114,111,46"),
 ggT:D("123,65,125,58,32,191,99,111,110,32,113,117,233,32,99,104,105,99,97,32,100,101,32,97,113,117,237,32,116,101,32,105,114,237,97,115,32,100,101,32,100,101,115,112,117,233,115,32,121,32,112,111,114,32,113,117,233,63~123,66,125,58,32,191,97,108,103,117,110,97,32,118,101,122,32,104,97,115,32,98,101,115,97,100,111,32,97,32,117,110,97,32,99,104,105,99,97,63,32,67,117,101,110,116,97,46~123,65,125,58,32,191,113,117,233,32,116,101,32,103,117,115,116,97,32,109,225,115,32,100,101,32,123,66,125,32,102,237,115,105,99,97,109,101,110,116,101,63~123,66,125,58,32,191,97,32,113,117,105,233,110,32,100,101,32,108,97,115,32,100,101,32,97,113,117,237,32,108,101,32,100,97,114,237,97,115,32,117,110,32,98,101,115,111,32,97,104,111,114,97,63~123,65,125,58,32,191,112,114,101,102,101,114,105,114,237,97,115,32,118,101,114,32,111,32,112,97,114,116,105,99,105,112,97,114,63,32,69,120,112,108,237,99,97,116,101,46~123,66,125,58,32,99,117,101,110,116,97,32,117,110,32,115,117,101,241,111,32,99,111,110,32,117,110,97,32,99,104,105,99,97,46"),
-ggD:D("123,65,125,32,121,32,123,66,125,58,32,98,101,115,111,32,100,101,32,53,32,115,101,103,117,110,100,111,115,46~123,66,125,58,32,100,97,108,101,32,97,32,123,65,125,32,117,110,32,98,101,115,111,32,101,110,32,101,108,32,101,115,99,111,116,101,32,111,32,101,110,32,101,108,32,99,117,101,108,108,111,46~123,65,125,58,32,115,105,233,110,116,97,116,101,32,101,110,32,101,108,32,114,101,103,97,122,111,32,100,101,32,123,66,125,46~123,65,125,32,121,32,123,66,125,58,32,109,105,114,97,100,32,97,32,108,111,115,32,111,106,111,115,32,121,32,100,101,99,105,100,32,113,117,233,32,104,97,114,237,97,105,115,44,32,108,97,115,32,100,111,115,32,97,32,108,97,32,118,101,122,46~123,66,125,58,32,113,117,237,116,97,108,101,32,97,32,123,65,125,32,117,110,97,32,112,114,101,110,100,97,46~123,65,125,32,121,32,123,66,125,58,32,97,98,114,97,122,97,111,115,32,99,111,109,111,32,115,105,32,102,117,101,114,97,105,115,32,112,97,114,101,106,97,32,104,97,115,116,97,32,101,108,32,112,114,243,120,105,109,111,32,116,117,114,110,111,46"),
+ggD:D("123,65,125,32,121,32,123,66,125,58,32,98,101,115,111,32,100,101,32,53,32,115,101,103,117,110,100,111,115,46~123,66,125,58,32,100,97,108,101,32,97,32,123,65,125,32,117,110,32,98,101,115,111,32,101,110,32,101,108,32,101,115,99,111,116,101,32,111,32,101,110,32,101,108,32,99,117,101,108,108,111,46~123,65,125,58,32,115,105,233,110,116,97,116,101,32,101,110,32,101,108,32,114,101,103,97,122,111,32,100,101,32,123,66,125,46~123,65,125,32,121,32,123,66,125,58,32,109,105,114,97,100,32,97,32,108,111,115,32,111,106,111,115,32,121,32,100,101,99,105,100,32,113,117,233,32,104,97,114,237,97,105,115,44,32,108,97,115,32,100,111,115,32,97,32,108,97,32,118,101,122,46~123,66,125,58,32,113,117,237,116,97,108,101,32,97,32,123,65,125,32,117,110,97,32,112,114,101,110,100,97,46~123,65,125,32,121,32,123,66,125,58,32,97,98,114,97,122,111,115,32,99,111,109,111,32,115,105,32,102,117,101,114,97,105,115,32,112,97,114,101,106,97,32,104,97,115,116,97,32,101,108,32,112,114,243,120,105,109,111,32,116,117,114,110,111,46"),
 bbT:["{A}: ¿qué es lo que más envidia de {B}?","{B}: ¿cuál es tu peor anécdota con {A}?","{A}: ¿qué le pedirías a {B} si fuera tu criado una noche?","{B}: ¿a quién de aquí le pegaría más de ser tu jefe?"],
 bbD:["{A} y {B}: abrazo de 10 segundos.","{B}: dale un masaje de hombros a {A} durante una ronda.","{A}: imita a {B} durante un minuto.","{A} y {B}: chocad los cinco como si ganarais la final, tres veces."],
 crossT:["{A}: ¿qué es lo primero que te fijaste de {B}?","{B}: ¿le pedirías a {A} un consejo sobre tu pareja?","{A}: ¿en qué se parece {B} a tu pareja y en qué no?","{B}: si tuvieras que cambiar de pareja una noche, ¿elegirías a {A}?","{A}: cuenta una cosa que le dirías a {B} si no hubiera nadie más."],
@@ -476,10 +479,13 @@ function go(id,back){if(id===cur)return;const o=document.getElementById(cur),n=d
 n.classList.add('on',back?'pp-entra-izq':'pp-entra-dcha');o.classList.add(back?'pp-sale-dcha':'pp-sale-izq');cur=id;
 setTimeout(()=>o.classList.remove('on','pp-sale-dcha','pp-sale-izq'),260);setTimeout(()=>n.classList.remove('pp-entra-izq','pp-entra-dcha'),270);n.scrollTop=0}
 function closeOv(id){document.getElementById(id).classList.remove('on')}
+function saveSess(o){S.sess=o;save()}
 const GAMES=[{id:'ruleta',n:'La Ruleta',d:'Gira y que decida el tridente.',ic:'◎'},{id:'vd',n:'Verdad o Reto',d:'Responde o hazlo. Si no, chupito.',ic:'✦'},{id:'nunca',n:'Yo Nunca',d:'Si te aplica, bebes.',ic:'◍'},{id:'dedo',n:'El Dedo',d:'A la de tres, todos señalan.',ic:'☝'},{id:'ciego',n:'Reto a Ciegas',d:'Nivel 1, 2 o 3. Sin saber qué viene.',ic:'▣'}];
 function renderHub(){document.getElementById('lockState').textContent=S.open?'abierto':'cerrado';
 document.getElementById('cast').innerHTML=PL.map(p=>`<div class="chip">${av(p)}<b>${p.n}</b></div>`).join('');
-document.getElementById('games').innerHTML=GAMES.map(g=>`<div class="gcard ${S.open?'':'locked'}" onclick="openGame('${g.id}')">${S.open?'':'<span class="pad">'+CANDADO+'</span>'}<div class="ic">${g.ic}</div><div><h3>${g.n}</h3><p>${g.d}</p></div></div>`).join('')}
+let extra='';
+if(S.open&&S.sess){const g=GAMES.find(x=>x.id===S.sess.g);if(g)extra=`<div class="gcard resume" onclick="resumeSess()"><div class="ic">↻</div><div><h3>Seguir: ${g.n}</h3><p>Retoma donde lo dejaste.</p></div></div>`}
+document.getElementById('games').innerHTML=extra+GAMES.map(g=>`<div class="gcard ${S.open?'':'locked'}" onclick="openGame('${g.id}')">${S.open?'':'<span class="pad">'+CANDADO+'</span>'}<div class="ic">${g.ic}</div><div><h3>${g.n}</h3><p>${g.d}</p></div></div>`).join('')}
 let pending=null;
 function openGame(id){if(!S.open){pending=id;document.getElementById('candadoOv').innerHTML=CANDADO;document.getElementById('codeIn').value='';document.getElementById('lockErr').textContent='';document.getElementById('lockOv').classList.add('on');return}launch(id)}
 function tryCode(){const v=document.getElementById('codeIn').value.trim().toLowerCase(),box=document.querySelector('#lockOv .box');
@@ -499,15 +505,25 @@ if(a.id==='ma'){if(r<e)return{pool:'em',t:byId('er')};if(r<e+.25)return{pool:'gg
 if(a.g==='f'){if(r<.35)return{pool:'pair',t:byId(PT[a.id])};if(r<.6)return{pool:'gg',t:women().filter(x=>x.id!==a.id)[rnd(3)]};if(r<.8)return{pool:'cross',t:men().filter(x=>x.id!==PT[a.id])[rnd(3)]};return{pool:'soloF',t:null}}
 if(r<.4)return{pool:'pair',t:byId(PT[a.id])};if(r<.65)return{pool:'bb',t:men().filter(x=>x.id!==a.id)[rnd(2)]};if(r<.85)return{pool:'cross',t:women().filter(x=>x.id!==PT[a.id])[rnd(3)]};return{pool:'soloM',t:null}}
 const stage=()=>document.getElementById('stage');
-function launch(id){document.getElementById('who').innerHTML='';if(id==='vd')return startVD(pickActive().id);if(id==='ruleta')return ruleta();if(id==='nunca')return nunca();if(id==='dedo')return dedo();if(id==='ciego')return ciego()}
-function startVD(id){const a=byId(id);document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>turno</i></div>`;
-stage().innerHTML=`<div class="card center carta-entra"><div class="tag">LE TOCA A ${a.n.toUpperCase()}</div><div class="txt" style="font-size:28px;font-family:'Luckiest Guy',Impact,sans-serif">¿VERDAD O RETO?</div><div style="display:flex;gap:9px;margin-top:20px;width:100%"><button class="btn" onclick="playVD('${id}','v')">VERDAD</button><button class="btn ghost" onclick="playVD('${id}','d')">RETO</button></div></div>`}
+function launch(id){go('play');document.getElementById('who').innerHTML='';if(id==='vd')return startVD(pickActive().id);if(id==='ruleta')return ruleta();if(id==='nunca')return nunca();if(id==='dedo')return dedo();if(id==='ciego')return ciego()}
+function exitGame(){delete S.sess;save();go('hub',1)}
+function resumeSess(){if(!S.sess)return;go('play');resume(S.sess)}
+function resume(s){if(!s)return;
+if(s.g==='vd'){const a=byId(s.a);if(!a)return exitGame();document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>turno</i></div>`;
+ if(s.ph==='ask')return showAsk(a);return showCard(a,s.k,s.t,s.b?byId(s.b):null)}
+if(s.g==='ruleta')return ruleta();
+if(s.g==='dedo')return dedo();
+if(s.g==='ciego'){if(s.ph==='rev')return showReveal(s.l,s.t);if(s.ph==='card')return showCiegoCard(s.l,s.t);return ciego()}
+if(s.g==='nunca'){deck=(S.deck||[]).slice();if(s.t)return showYN(s.t);return nunca()}}
+function startVD(id){const a=byId(id);document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>turno</i></div>`;saveSess({g:'vd',a:id,ph:'ask'});showAsk(a)}
+function showAsk(a){stage().innerHTML=`<div class="card center carta-entra"><div class="tag">LE TOCA A ${a.n.toUpperCase()}</div><div class="txt" style="font-size:28px;font-family:'Luckiest Guy',Impact,sans-serif">¿VERDAD O RETO?</div><div style="display:flex;gap:9px;margin-top:20px;width:100%"><button class="btn" onclick="playVD('${a.id}','v')">VERDAD</button><button class="btn ghost" onclick="playVD('${a.id}','d')">RETO</button></div></div>`}
 function playVD(id,kind){const a=byId(id),f=focusFor(a),b=f.t;const txt=fill(take(f.pool+(kind==='v'?'T':'D')),a,b);vib(18);
-stage().innerHTML=`<div class="card carta-entra" id="cardBox"><div class="tag">${kind==='v'?'VERDAD':'RETO'}${b?' · CON '+b.n.toUpperCase():''}</div><div class="txt">${esc(txt).split(a.n).join('<b>'+a.n+'</b>')}</div>${b?'<div class="duo">'+av(a)+av(b)+'</div>':''}<div id="sipSlot"></div></div><div class="acts"><button class="btn ghost" onclick="sip('${id}')">NO CUMPLE</button><button class="btn" onclick="startVD(pickActive().id)">SIGUIENTE</button></div><p class="hint">Cumplido: siguiente. No cumplido: chupito y siguiente.</p>`}
+saveSess({g:'vd',a:id,ph:'card',k:kind,t:txt,b:b?b.id:null});showCard(a,kind,txt,b)}
+function showCard(a,kind,txt,b){stage().innerHTML=`<div class="card carta-entra" id="cardBox"><div class="tag">${kind==='v'?'VERDAD':'RETO'}${b?' · CON '+b.n.toUpperCase():''}</div><div class="txt">${esc(txt).split(a.n).join('<b>'+a.n+'</b>')}</div>${b?'<div class="duo">'+av(a)+av(b)+'</div>':''}<div id="sipSlot"></div></div><div class="acts"><button class="btn ghost" onclick="sip('${a.id}')">NO CUMPLE</button><button class="btn" onclick="startVD(pickActive().id)">SIGUIENTE</button></div><p class="hint">Cumplido: siguiente. No cumplido: chupito y siguiente.</p>`}
 function sip(id){S.tally[id]=(S.tally[id]||0)+1;save();vib(60);const slot=document.getElementById('sipSlot'),box=document.getElementById('cardBox');if(!slot)return;
 slot.innerHTML=SELLO;if(box){box.classList.remove('impacto-tiembla');void box.offsetWidth;box.classList.add('impacto-tiembla')}}
 let angulo=0,girando=false;
-function ruleta(){document.getElementById('who').innerHTML='<div><b>La Ruleta</b><i>que decida el tridente</i></div>';
+function ruleta(){document.getElementById('who').innerHTML='<div><b>La Ruleta</b><i>que decida el tridente</i></div>';saveSess({g:'ruleta'});
 stage().innerHTML='<div class="roul">'+RULETA+'</div><div class="legend">'+PL.map(p=>`<div class="chip">${av(p)}<b>${p.n}</b></div>`).join('')+'</div><button class="btn" style="margin-top:14px" onclick="girar()">GIRAR</button><p class="hint">Gira. Lo que caiga, se juega.</p>'}
 function girar(){if(girando)return;const disco=document.querySelector('.ruleta-disco'),r=document.getElementById('ruleta');if(!disco)return;girando=true;vib(15);
 const idx=pickActiveIndex(),paso=360/7,sector=idx*paso+paso/2,desde=angulo%360,delta=(360-((sector+desde)%360))%360,fin=angulo+1800+delta;angulo=fin;
@@ -516,18 +532,20 @@ disco.classList.remove('is-girando');r.classList.remove('is-girando');void r.off
 disco.classList.add('is-girando');r.classList.add('is-girando');setTimeout(()=>{girando=false;startVD(PL[idx].id)},4250)}
 function pickActiveIndex(){const w=PL.map(p=>p.id==='er'?S.er:p.id==='ma'?S.ma:1);const tot=w.reduce((a,b)=>a+b,0);let r=Math.random()*tot;for(let i=0;i<w.length;i++){r-=w[i];if(r<=0)return i}return 0}
 let deck=[];
-function nunca(){document.getElementById('who').innerHTML='<div><b>Yo Nunca</b><i>si te aplica, bebes</i></div>';if(!deck.length)deck=[...P.yn].sort(()=>Math.random()-.5);nextYN()}
-function nextYN(){if(!deck.length)deck=[...P.yn].sort(()=>Math.random()-.5);const t=deck.pop();
+function nunca(){document.getElementById('who').innerHTML='<div><b>Yo Nunca</b><i>si te aplica, bebes</i></div>';if(!deck.length)deck=[...P.yn].sort(()=>Math.random()-.5);S.deck=deck;save();saveSess({g:'nunca'});nextYN()}
+function nextYN(){if(!deck.length)deck=[...P.yn].sort(()=>Math.random()-.5);const t=deck.pop();S.deck=deck;saveSess({g:'nunca',t:t});showYN(t)}
+function showYN(t){document.getElementById('who').innerHTML='<div><b>Yo Nunca</b><i>si te aplica, bebes</i></div>';
 stage().innerHTML=`<div class="card center carta-entra"><div class="tag">YO NUNCA</div><div class="txt" style="font-size:23px">${esc(t.replace('Yo nunca... ',''))}</div></div><div class="acts"><button class="btn" onclick="nextYN()">SIGUIENTE</button></div><p class="hint">Quien lo haya hecho, bebe. Sin excusas.</p>`}
-function dedo(){document.getElementById('who').innerHTML='<div><b>El Dedo</b><i>todos señalan</i></div>';
+function dedo(){document.getElementById('who').innerHTML='<div><b>El Dedo</b><i>todos señalan</i></div>';saveSess({g:'dedo'});
 stage().innerHTML=`<div class="card center carta-entra"><div class="big" id="cnt">3</div><p class="hint">Preparad los dedos.</p></div><div class="acts"><button class="btn" onclick="dedoRun()">EMPEZAR</button></div>`}
 function dedoRun(){const c=document.getElementById('cnt');let n=3;vib(20);const t=setInterval(()=>{n--;c.textContent=n>0?n:'¡YA!';vib(30);
 if(n<=0){clearInterval(t);setTimeout(()=>{stage().innerHTML=`<div class="card center carta-entra"><div class="tag">RESULTADO</div><div class="txt" style="font-size:25px">El más señalado bebe.</div><p class="hint">Empate: beben todos los empatados.</p></div><div class="acts"><button class="btn" onclick="dedo()">OTRA</button></div>`},600)}},700)}
-function ciego(){document.getElementById('who').innerHTML='<div><b>Reto a Ciegas</b><i>elige nivel</i></div>';
-stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL</div><div class="txt" style="font-size:22px">Elige la intensidad. No sabrás qué es hasta abrirlo.</div></div><div class="acts" style="margin-top:12px"><button class="btn ghost" onclick="ciegoCard(0)">SUAVE</button><button class="btn" onclick="ciegoCard(1)">MEDIO</button><button class="btn ghost" onclick="ciegoCard(2)">FUERTE</button></div>`}
-function ciegoCard(l){const t=P.cl[l][rnd(P.cl[l].length)];
-stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL ${l+1}</div><div class="big" style="font-size:50px">?</div></div><div class="acts"><button class="btn" onclick="ciegoReveal(${l},this)" data-t="${esc(t).replace(/"/g,'&quot;')}">ABRIR</button></div>`}
-function ciegoReveal(l,btn){vib(40);stage().innerHTML=`<div class="card carta-entra"><div class="tag">NIVEL ${l+1} · RETO</div><div class="txt">${btn.dataset.t}</div></div><div class="acts"><button class="btn" onclick="ciego()">OTRO</button></div>`}
+function ciego(){document.getElementById('who').innerHTML='<div><b>Reto a Ciegas</b><i>elige nivel</i></div>';saveSess({g:'ciego',ph:'lvl'});showLvl()}
+function showLvl(){stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL</div><div class="txt" style="font-size:22px">Elige la intensidad. No sabrás qué es hasta abrirlo.</div></div><div class="acts" style="margin-top:12px"><button class="btn ghost" onclick="ciegoCard(0)">SUAVE</button><button class="btn" onclick="ciegoCard(1)">MEDIO</button><button class="btn ghost" onclick="ciegoCard(2)">FUERTE</button></div>`}
+function ciegoCard(l){const t=P.cl[l][rnd(P.cl[l].length)];saveSess({g:'ciego',ph:'card',l:l,t:t});showCiegoCard(l,t)}
+function showCiegoCard(l,t){stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL ${l+1}</div><div class="big" style="font-size:50px">?</div></div><div class="acts"><button class="btn" onclick="ciegoReveal(${l},this)" data-t="${esc(t).replace(/"/g,'&quot;')}">ABRIR</button></div>`}
+function ciegoReveal(l,btn){vib(40);const t=btn.dataset.t;saveSess({g:'ciego',ph:'rev',l:l,t:t});showReveal(l,t)}
+function showReveal(l,t){stage().innerHTML=`<div class="card carta-entra"><div class="tag">NIVEL ${l+1} · RETO</div><div class="txt">${t}</div></div><div class="acts"><button class="btn" onclick="ciego()">OTRO</button></div>`}
 let lp;
 document.getElementById('cover').addEventListener('pointerdown',()=>{lp=setTimeout(openAdmin,750)});
 ['pointerup','pointerleave','pointercancel'].forEach(e=>document.getElementById('cover').addEventListener(e,()=>clearTimeout(lp)));
@@ -544,6 +562,7 @@ if(id==='rEm'){S.em=v/100;document.getElementById('vEm').textContent=emWord(v)}}
 function saveAdmin(){const c=document.getElementById('codeSet').value.trim().toLowerCase();if(c)S.code=c;save();closeOv('adminOv');vib(30)}
 function resetAll(){localStorage.removeItem('siete');location.reload()}
 renderHub();
+if(S.open&&S.sess)resumeSess();
 (function(){
  try{
   const ico='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><rect width="1024" height="1024" fill="#1A1026"/><g transform="translate(25.6 25.6) scale(.95)"><path d="M164 518C118 477 77 464 69 468C48 472 63 563 80 610C96 656 120 687 160 705C184 864 331 987 508 987C681 987 823 869 855 706C908 679 937 613 949 550C954 525 959 477 948 471C935 462 883 491 854 519C817 355 682 247 510 247C342 247 204 350 164 518Z" fill="#FF3B30"/><path d="M207 460C173 432 137 383 131 326C120 227 197 138 282 98C305 87 330 80 336 85C342 89 335 96 328 104C291 151 268 198 275 245C282 289 313 315 353 336C348 383 310 426 264 448C244 458 224 464 207 460Z" fill="#FFE9C7"/><path d="M812 460C844 431 880 382 886 326C898 227 821 139 737 99C713 88 690 80 686 85C681 90 690 99 697 108C731 151 752 199 746 242C740 286 710 315 666 336C671 383 709 426 756 448C776 458 795 465 812 460Z" fill="#FFE9C7"/><path d="M267 553C254 578 257 609 269 633C287 671 326 696 365 697C412 699 450 672 463 625L267 553Z" fill="#FFE9C7"/><path d="M750 551C762 580 756 611 743 637C724 673 689 697 650 696C606 696 569 670 555 626L750 551Z" fill="#FFE9C7"/><path d="M369 586C361 597 359 613 365 626C372 643 389 650 405 645C423 640 433 627 433 608Z" fill="#1A1026"/><path d="M597 585C589 596 589 613 595 626C602 643 619 650 635 643C651 637 663 621 658 603Z" fill="#1A1026"/><path d="M308 781C375 823 507 807 599 778C665 757 719 729 751 698C708 689 734 697 728 695C750 677 791 686 787 733C778 720 772 712 766 710C739 807 670 866 589 889C475 922 351 883 308 781Z" fill="#1A1026"/></g></svg>');
