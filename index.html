@@ -819,6 +819,8 @@ saveSess({g:'ciego',ph:'card',l:l,a:a.id,t:t});showCiegoCard(l,t)};
 const _rh=renderHub;
 renderHub=function(){_rh();const g=document.getElementById('games');if(!g)return;
 document.querySelectorAll('#nocheCard').forEach(x=>x.remove());
+const cast=document.getElementById('cast');
+if(cast)cast.innerHTML=PL.slice().sort(()=>Math.random()-.5).map(p=>`<div class="chip">${av(p)}<b>${p.n}</b></div>`).join('');
 let h=g.querySelector('.hero');
 if(!h){h=document.createElement('div');h.className='hero';h.innerHTML='<div><h3></h3><p></p></div>';g.insertBefore(h,g.firstChild)}
 h.style.marginTop='14px';h.style.overflow='visible';h.style.position='relative';
