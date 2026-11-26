@@ -146,7 +146,7 @@ h1,h2,h3{margin:0;font-weight:800}
 .box h3{font-family:'Luckiest Guy',Impact,sans-serif;font-size:20px;color:var(--amarillo);margin-bottom:6px}
 .box p{color:var(--mut);font-size:12.5px;margin:0 0 14px}
 .box .candado svg{width:74px;height:auto;margin-bottom:8px}
-input[type=text]{width:100%;background:#140e1e;border:2px solid var(--linea);color:var(--crema);border-radius:11px;padding:13px;font-size:17px;font-family:inherit;text-align:center;letter-spacing:.28em;text-transform:lowercase}
+input[type=text]{width:100%;background:#140e1e;border:2px solid var(--linea);color:var(--crema);border-radius:11px;padding:13px;font-size:17px;font-family:inherit;text-align:center;letter-spacing:.28em}
 input[type=range]{width:100%;accent-color:var(--rojo)}
 .fld{margin:12px 0;text-align:left}
 .fld label{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-bottom:5px}
@@ -411,7 +411,7 @@ td:last-child{text-align:right;color:var(--amarillo);font-weight:700}
   <div class="fld"><label>Peso de Ernesto <b id="vEr">1.6</b></label><input type="range" id="rEr" min="0.5" max="4" step="0.1" value="1.6"></div>
   <div class="fld"><label>Peso de Marina <b id="vMa">1.6</b></label><input type="range" id="rMa" min="0.5" max="4" step="0.1" value="1.6"></div>
   <div class="fld"><label>Reparto <b id="vEm">medio</b></label><input type="range" id="rEm" min="10" max="90" step="5" value="55"></div>
-  <div class="fld"><label>Código de la noche</label><input type="text" id="codeSet" style="text-align:left;letter-spacing:0" value="rural"></div>
+  <div class="fld"><label>Código de la noche</label><input type="text" id="codeSet" style="text-align:left;letter-spacing:0" value="Rural5560"></div>
   <h3 style="font-size:15px;margin:16px 0 6px">Chupitos</h3>
   <table id="tally"></table>
   <button class="btn sm" style="margin-top:14px" onclick="saveAdmin()">GUARDAR</button>
@@ -442,6 +442,87 @@ soloMT:["{A}: ¿cuál es tu récord en una noche?","{A}: ¿qué te da más verg�
 soloMD:["{A}: bébete medio chupito de un tirón.","{A}: canta el estribillo de una canción que todos sepan.","{A}: haz 10 flexiones o bebe."],
 yn:["Yo nunca... he mentido sobre mi edad.","Yo nunca... he fingido que me gustaba un regalo.","Yo nunca... me he quedado dormido en una fiesta.","Yo nunca... he mandado un mensaje y me he arrepentido.","Yo nunca... he mirado el móvil de mi pareja.","Yo nunca... he vuelto con un ex.","Yo nunca... he dicho te quiero sin sentirlo del todo.","Yo nunca... me he fijado en alguien de esta mesa y he disimulado.","Yo nunca... he besado a alguien la primera noche.","Yo nunca... he estado a punto de algo con alguien de esta casa.","Yo nunca... he dormido en la misma cama con tres personas.","Yo nunca... he mandado una foto que no debía.","Yo nunca... he fingido en la cama.","Yo nunca... me he arrepentido de un beso la mañana siguiente.","Yo nunca... he pensado en un ex durante."],
 cl:[["Imita a alguien del grupo hasta que lo adivinen.","Habla con acento extranjero durante tres rondas.","Bébete un chupito sin usar las manos.","Deja que la persona a tu derecha te despeine."],["Da tres besos: uno en la mano, uno en el cuello y uno donde elijas.","Baila pegado con quien no sea tu pareja, un minuto.","Cuenta tu última fantasía sin decir nombres y que la adivinen.","Deja que el grupo te ponga un apodo y no te quejes en toda la noche."],["Beso de 10 segundos con quien diga el grupo.","Quítate una prenda y no te la vuelvas a poner.","Susúrrale al oído a alguien lo que le harías. Sin repetir persona.","Siéntate en el regazo de quien tú elijas y quédate hasta tu próximo turno."]]};
+Object.assign(P,{
+verT1:["{A}: ¿qué es lo primero que te fijaste de {B}?","{B}: ¿qué te cae bien de {A}?","{A}: ¿qué te ha hecho gracia de {B} hoy?","{B}: ¿qué le dirías a {A} si no hubiera nadie más?","{A}: ¿qué plan te pega más, uno tranquilo o uno de salir?"],
+verT2:["{A}: ¿te has fijado alguna vez en {B} y no se lo has dicho?","{B}: ¿qué es lo que más te llama de {A}?","{A}: ¿qué le pedirías a {B} que no le has pedido nunca?","{B}: ¿qué gesto de {A} te descoloca?","{A}: ¿qué es lo más bonito que te han dicho nunca?"],
+verT3:["{A}: ¿qué te apetece hacer con {B} y no habéis hecho?","{B}: ¿dónde te gustaría que {A} te tocara?","{A}: ¿qué te daría rabia que no pasara con {B} esta noche?","{B}: ¿qué es lo más atrevido que harías con {A} aquí mismo?","{A}: ¿qué le has contado a {B} que no le hayas contado a nadie?"],
+verS1:["{A}: ¿qué es lo primero que miras en alguien?","{A}: ¿te cuesta disimular cuando alguien te gusta?","{A}: ¿qué te da vergüenza contar delante de la gente?","{A}: ¿qué te hace reír siempre, aunque no tenga gracia?"],
+verS2:["{A}: ¿qué es lo más atrevido que has hecho?","{A}: ¿qué te pondría más que te hablaran al oído?","{A}: ¿cuál es tu punto débil con quien te gusta?","{A}: ¿qué mentira has contado para quedar bien?"],
+verS3:["{A}: ¿qué has hecho borracho que no repetirías sobrio?","{A}: ¿qué te falta en la cama y no pides?","{A}: ¿con quién de esta casa te irías de después sin pensarlo?","{A}: ¿qué es lo que más te da morbo que te hagan?"],
+retoP1:["{A} y {B}: abrazo de 10 segundos.","{B}: dale a {A} un beso en la mejilla y otro en la boca.","{A} y {B}: susurraos un cumplido al oído.","{A} y {B}: baila pegado 30 segundos.","{B}: coge a {A} de la mano el resto de la ronda."],
+retoP2:["{A} y {B}: beso de 10 segundos, con manos.","{B}: dale a {A} un beso en el cuello.","{A} y {B}: mirad a los ojos 15 segundos sin reíros.","{B}: siéntate en el regazo de {A} hasta tu próximo turno.","{A}: dile al oído a {B} qué es lo que más te gusta de su cuerpo."],
+retoP3:["{A} y {B}: quitaos una prenda cada uno.","{A}: ponte a horcajadas sobre {B} 10 segundos.","{B}: susúrrale a {A} lo que haríais al llegar a casa.","{A} y {B}: beso de 15 segundos sin usar las manos.","{B}: 15 segundos de beso en el cuello de {A}."],
+retoM1:["Marina y {B}: beso en la mejilla y abrazo de 10 segundos.","Marina: dale la mano a {B} el resto de la ronda.","{B}: dale a Marina un cumplido a la cara.","Marina: siéntate al lado de {B} hasta tu próximo turno.","Marina: cuéntale a {B} algo que no sepa de ti."],
+retoM2:["Marina y {B}: beso de 10 segundos.","Marina: dale un beso en el cuello a {B}.","Marina: siéntate en el regazo de {B} hasta tu próximo turno.","{B}: susúrrale a Marina qué es lo que más te gusta de ella.","Marina: baila con {B} un minuto sin música."],
+retoM3:["Marina y {B}: beso de 15 segundos en la boca.","Marina y {B}: quitaos una prenda cada una.","Marina: siéntate encima de {B} hasta que beba otra.","{B}: besa a Marina en el cuello y luego en la boca.","Marina: susúrrale a {B} lo que le harías."],
+retoDel1:["Marina: que Celín elija a quién le das dos besos, uno en cada mejilla.","Marina: que Alba elija a quién le haces un cumplido mirándole a los ojos.","Marina: que María elija a quién le cuentas tu último ligue.","Marina: que Celín elija a quién te sientas al lado el resto de la ronda.","Marina: que Alba elija a quién le das la mano un minuto."],
+retoDel2:["Marina: que Celín elija a quién le das un abrazo de 10 segundos.","Marina: que Alba elija a quién le susurras algo al oído.","Marina: que María elija a quién le das dos besos, donde ella diga.","Marina: que Celín elija a un chico y dale dos besos.","Marina: que María elija a quién le bailas pegado un minuto."],
+retoDel3:["Marina: que Celín elija a quién le das un beso de 10 segundos.","Marina: que Alba elija a quién te sientas en el regazo.","Marina: que Celín elija a un chico y dale un beso de 10 segundos.","Marina: que María elija a quién le susurras lo que le harías.","Marina: que Celín elija a quién le das un beso en el cuello."],
+retoG1:["{A}: bébete un chupito sin usar las manos.","{A}: habla con acento extranjero durante tres rondas.","{A}: imita a alguien hasta que lo adivinen.","{A}: deja que la persona a tu derecha te despeine.","{A}: di el alfabeto al revés o bebe."],
+retoG2:["{A}: canta el estribillo de una canción que todos sepan.","{A}: haz 10 flexiones o bebe.","{A}: bebe un trago por cada ex que recuerdes, máximo tres.","{A}: deja que el grupo te ponga un apodo y no te quejes en toda la noche.","{A}: cuenta tu peor cita con detalles."],
+retoG3:["{A}: bébete medio chupito de un tirón.","{A}: cuenta tu última fantasía sin decir nombres.","{A}: que el grupo elija: bebes o cantas. Tú acatas.","{A}: quítate una prenda y no te la vuelvas a poner.","{A}: imita tu propia cara en el momento más incómodo que recuerdes."],
+yn1:["Yo nunca... he mentido sobre mi edad.","Yo nunca... he fingido que me gustaba un regalo.","Yo nunca... me he quedado dormido en una fiesta.","Yo nunca... he mandado un mensaje y me he arrepentido.","Yo nunca... he mirado el móvil de mi pareja.","Yo nunca... he fingido que me acordaba de algo.","Yo nunca... he cantado mal a propósito.","Yo nunca... me he reído de alguien sin que se enterara."],
+yn2:["Yo nunca... he vuelto con un ex.","Yo nunca... he dicho te quiero sin sentirlo del todo.","Yo nunca... me he fijado en alguien de esta mesa y he disimulado.","Yo nunca... he besado a alguien la primera noche.","Yo nunca... he mandado una foto que no debía.","Yo nunca... he mentido sobre a quién me gustaba.","Yo nunca... he dormido con alguien y he salido corriendo.","Yo nunca... he puesto excusas para no quedar."],
+yn3:["Yo nunca... he estado a punto de algo con alguien de esta casa.","Yo nunca... he dormido en la misma cama con tres personas.","Yo nunca... he fingido en la cama.","Yo nunca... me he arrepentido de un beso la mañana siguiente.","Yo nunca... he pensado en un ex durante.","Yo nunca... he deseado que alguien de aquí se acercara más.","Yo nunca... he repetido solo por no quedar mal.","Yo nunca... he contado algo de la cama a mis amigos."],
+cl:[["Imita a alguien del grupo hasta que lo adivinen.","Habla con acento extranjero durante tres rondas.","Bébete un chupito sin usar las manos.","Deja que la persona a tu derecha te despeine."],["Dale un abrazo de 10 segundos a {B}.","Cuenta tu última fantasía sin decir nombres.","Deja que el grupo te ponga un apodo y no te quejes en toda la noche.","Bebe un trago por cada ex que recuerdes, máximo tres."],["Beso de 10 segundos con {B}.","Susúrrale a {B} al oído lo que le harías.","Quítate una prenda y no te la vuelvas a poner.","Siéntate en el regazo de {B} hasta tu próximo turno."]]});
+
+const CSS_EXTRA=`
+#hub{padding-bottom:34px}
+#hub .top{align-items:flex-end;margin-bottom:2px}
+#hub .top h2{font-size:36px;line-height:.88;letter-spacing:.02em;color:var(--crema);text-shadow:0 3px 0 var(--rojo),0 6px 0 var(--tinta)}
+#hub .sub{margin:6px 0 14px;font-size:11.5px;letter-spacing:.04em}
+#hub .lockico{display:none}
+.badge{font-family:'Luckiest Guy',Impact,sans-serif;font-size:10px;letter-spacing:.14em;padding:6px 9px 3px;border-radius:7px;border:2px solid var(--linea);color:var(--mut);margin-bottom:6px}
+.badge.on{color:var(--verde);border-color:var(--verde)}
+#hub .cast{flex-wrap:nowrap;overflow-x:auto;gap:7px;padding:2px 0 12px;scrollbar-width:none;margin-bottom:6px}
+#hub .cast::-webkit-scrollbar{display:none}
+#hub .cast .chip{width:54px;flex:0 0 auto}
+#hub .cast .chip .av{width:46px;height:46px;border:2px solid var(--linea);border-radius:12px}
+#hub .cast .chip b{font-size:9px}
+#hub .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-bottom:10px}
+.hero{position:relative;grid-column:1/-1;overflow:hidden;border-radius:20px;border:2px solid #4d2d6b;background:linear-gradient(140deg,#3b1a50,#1b1026 65%);padding:17px 15px;display:flex;align-items:center;gap:13px;cursor:pointer;box-shadow:0 4px 0 var(--tinta)}
+.hero .moon{font-size:34px;color:var(--amarillo);line-height:1;text-shadow:0 0 18px rgba(255,210,63,.45)}
+.hero h3{font-family:'Luckiest Guy',Impact,sans-serif;font-size:20px;color:var(--amarillo);letter-spacing:.02em}
+.hero p{font-size:11px;color:var(--mut);margin:3px 0 0;line-height:1.35}
+.hero:active{transform:scale(.99)}
+.gcard{position:relative;border-radius:18px;border:2px solid var(--ac);background:linear-gradient(160deg,var(--ac2),var(--pnl) 72%);padding:14px 13px 13px;min-height:122px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;cursor:pointer;box-shadow:0 4px 0 var(--tinta)}
+.gcard .wm{position:absolute;right:-6px;top:-14px;font-family:'Luckiest Guy',Impact,sans-serif;font-size:88px;line-height:1;color:var(--ac);opacity:.13;pointer-events:none}
+.gcard .ic{width:26px;height:26px;display:grid;place-items:center;border-radius:8px;border:2px solid var(--ac);color:var(--ac);font-size:14px;margin-bottom:9px}
+.gcard h3{font-family:'Luckiest Guy',Impact,sans-serif;font-size:15.5px;letter-spacing:.02em;color:var(--crema);line-height:1.05}
+.gcard p{font-size:10.5px;color:var(--mut);margin:4px 0 0;line-height:1.3}
+.gcard.wide{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:flex-start;gap:13px;min-height:0;padding:15px}
+.gcard.wide .ic{margin:0;width:32px;height:32px;font-size:17px}
+.gcard.wide .wm{font-size:110px;right:14px;top:-26px;opacity:.16}
+.gcard.wide h3{font-size:19px}
+.gcard.locked{opacity:.6}
+.gcard.locked .wm{opacity:.09}
+.gcard .pad{position:absolute;top:9px;right:9px;z-index:2}
+.gcard .pad svg{width:22px;height:auto}
+.gcard:active{transform:scale(.98)}
+.gcard.resume{border-color:var(--rojo);background:linear-gradient(120deg,#3a1622,var(--pnl) 70%)}
+#hub .hint{grid-column:1/-1;margin-top:4px}
+
+#play{--ac:#FFD23F;--glo:rgba(255,210,63,.16)}
+#play[data-g="ruleta"]{--ac:#FF3B30;--glo:rgba(255,59,48,.18)}
+#play[data-g="nunca"]{--ac:#9B5CFF;--glo:rgba(155,92,255,.18)}
+#play[data-g="dedo"]{--ac:#2EC8FF;--glo:rgba(46,200,255,.18)}
+#play[data-g="ciego"]{--ac:#FF4FA3;--glo:rgba(255,79,163,.18)}
+#play::after{content:attr(data-gl);position:absolute;right:-14px;bottom:-30px;font-family:'Luckiest Guy',Impact,sans-serif;font-size:190px;line-height:1;color:var(--ac);opacity:.06;pointer-events:none;z-index:0}
+#play>*{position:relative;z-index:1}
+#play .bar{padding-bottom:10px;border-bottom:2px solid rgba(255,255,255,.07)}
+#play .back{border-color:var(--ac);color:var(--ac)}
+#play .who b{color:var(--ac);letter-spacing:.02em}
+#play .card{border-color:var(--ac);border-radius:20px;background:linear-gradient(170deg,var(--pnl2),#160e21 88%);overflow:hidden;box-shadow:0 6px 0 rgba(0,0,0,.3)}
+#play .card::before{content:'';position:absolute;inset:0;background:radial-gradient(130% 70% at 50% -10%,var(--glo),transparent 72%);pointer-events:none;z-index:0}
+#play .card>*{position:relative;z-index:1}
+#play .card .tag{align-self:center;display:inline-block;background:var(--ac);color:var(--tinta);padding:6px 12px 4px;border-radius:6px;transform:rotate(-2deg);font-size:11px;letter-spacing:.18em;margin-bottom:15px;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+#play .card .txt{font-size:21px}
+#play .big{color:var(--ac);text-shadow:0 4px 0 rgba(0,0,0,.35)}
+#play .acts .btn{box-shadow:0 5px 0 rgba(0,0,0,.55)}
+#play .btn.ghost{border-color:var(--ac);color:var(--ac)}
+#play .card.center .txt{font-size:19px}
+`;
+(function(){const st=document.createElement('style');st.textContent=CSS_EXTRA;document.head.appendChild(st)})();
 
 const AV={
 er:'<svg viewBox="0 0 1024 1024"><rect width="1024" height="1024" fill="#1A1026"/><g transform="translate(25.6 25.6) scale(.95)"><g fill="#FF3B30"><path d="M164 518C118 477 77 464 69 468C48 472 63 563 80 610C96 656 120 687 160 705C184 864 331 987 508 987C681 987 823 869 855 706C908 679 937 613 949 550C954 525 959 477 948 471C935 462 883 491 854 519C817 355 682 247 510 247C342 247 204 350 164 518Z"/></g><g fill="#1A1026"><path d="M98 527C125 536 148 556 162 583C158 604 156 627 158 652C123 629 105 584 98 527Z"/><path d="M918 529C891 540 869 561 855 586C858 609 861 631 858 654C892 627 910 582 918 529Z"/></g><g fill="#FFE9C7"><path d="M207 460C173 432 137 383 131 326C120 227 197 138 282 98C305 87 330 80 336 85C342 89 335 96 328 104C291 151 268 198 275 245C282 289 313 315 353 336C348 383 310 426 264 448C244 458 224 464 207 460Z"/><path d="M812 460C844 431 880 382 886 326C898 227 821 139 737 99C713 88 690 80 686 85C681 90 690 99 697 108C731 151 752 199 746 242C740 286 710 315 666 336C671 383 709 426 756 448C776 458 795 465 812 460Z"/></g><g><path d="M260 529C241 550 237 594 254 629C274 671 317 700 365 702C421 705 461 671 474 628L260 529Z" fill="#1A1026"/><path d="M267 553C254 578 257 609 269 633C287 671 326 696 365 697C412 699 450 672 463 625L267 553Z" fill="#FFE9C7"/><path d="M763 529C776 565 770 609 753 638C730 678 691 700 650 701C596 701 556 672 543 628L763 529Z" fill="#1A1026"/><path d="M750 551C762 580 756 611 743 637C724 673 689 697 650 696C606 696 569 670 555 626L750 551Z" fill="#FFE9C7"/><path d="M369 586C361 597 359 613 365 626C372 643 389 650 405 645C423 640 433 627 433 608Z" fill="#1A1026"/><path d="M597 585C589 596 589 613 595 626C602 643 619 650 635 643C651 637 663 621 658 603Z" fill="#1A1026"/></g><g fill="#1A1026"><path d="M221 533C218 514 231 482 250 480C259 479 438 578 465 589C478 595 490 569 494 547C503 574 502 607 491 624C487 632 474 628 462 624L221 533Z"/><path d="M793 536C798 517 780 485 763 481C754 477 577 580 552 593C538 601 533 570 532 549C521 575 517 605 525 622C529 632 542 629 555 624L793 536Z"/></g><g><path d="M308 781C375 823 507 807 599 778C665 757 719 729 751 698C708 689 734 697 728 695C750 677 791 686 787 733C778 720 772 712 766 710C739 807 670 866 589 889C475 922 351 883 308 781Z" fill="#1A1026"/><path d="M615 782L688 756C684 785 672 822 658 848C655 854 653 854 649 847C636 828 624 804 615 782Z" fill="#FFE9C7"/></g></g></svg>',
@@ -463,29 +544,70 @@ const RULETA='<div class="ruleta" id="ruleta" style="--dur:4200ms">'
 +'<svg class="ruleta-flecha" viewBox="0 0 56 76" width="62" height="84" aria-hidden="true"><path d="M28 2 V52 M10 50 V34 Q10 22 28 22 Q46 22 46 34 V50" fill="none" stroke="#1A1026" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 2 V52 M10 50 V34 Q10 22 28 22 Q46 22 46 34 V50" fill="none" stroke="#FFE9C7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 74 L20 50 H36Z M10 64 L3 46 H17Z M46 64 L39 46 H53Z" fill="#FFE9C7" stroke="#1A1026" stroke-width="3.5" stroke-linejoin="round"/></svg>'
 +'</div>';
 
+const CAST1=[
+ {t:'bebe medio chupito de un tirón.'},
+ {t:'bebe dos tragos seguidos.'},
+ {t:'bebe y cuenta algo que nadie de aquí sepa.'},
+ {t:'bebe mientras el grupo cuenta hasta cinco en voz alta.'},
+ {t:'haz un brindis de una frase y bébete el vaso.'},
+ {t:'imita a alguien del grupo. Si no lo adivinan en 10 segundos, bebes doble.'},
+ {t:'dale un sorbo de tu vaso a {B}.',tg:1},
+ {t:'abrazo de 5 segundos con {B}.',tg:1}];
+const CAST2=[
+ {t:'bebe un trago por cada ex que te venga a la cabeza, máximo tres.'},
+ {t:'que el grupo elija: bebes o cantas. Tú acatas.'},
+ {t:'susúrrale a {B} al oído lo primero que se te pase. Sin pensar.',tg:1},
+ {t:'bebe y dile a {B} algo que le quede bien.',tg:1},
+ {t:'cambia de sitio con {B} y bebe al llegar.',tg:1},
+ {t:'bebe. Y si {B} no bebe contigo, bebes otra vez.',tg:1},
+ {t:'cuenta tu peor cita y bebe al terminar.'}];
+const CAST3=[
+ {t:'bebe y dale dos besos a {B}.',tg:1},
+ {t:'abrazo de 10 segundos con {B} y bebe.',tg:1},
+ {t:'bebe y siéntate en el regazo de {B} hasta tu próximo turno.',tg:1},
+ {t:'bebe y susúrrale a {B} lo que le harías.',tg:1},
+ {t:'bébete medio chupito y cuenta tu última fantasía sin nombres.'},
+ {t:'bebe y baila pegado con {B} un minuto.',tg:1}];
+
+const RONDAS=[{g:'nunca',n:8,l0:1,l1:1},{g:'ruleta',n:5,l0:1,l1:2},{g:'dedo',n:3,l0:1,l1:1},{g:'ciego',n:5,l0:2,l1:2},{g:'vd',n:5,l0:2,l1:3},{g:'ruleta',n:5,l0:3,l1:3}];
+
 const PL=[{id:'er',n:'Ernesto',g:'m'},{id:'ma',n:'Marina',g:'f'},{id:'je',n:'Jesús',g:'m'},{id:'al',n:'Alba',g:'f'},{id:'is',n:'Ismael',g:'m'},{id:'ce',n:'Celín',g:'f'},{id:'mi',n:'María',g:'f'}];
 const PT={er:'ce',ce:'er',je:'al',al:'je',is:'mi',mi:'is'};
 const byId=id=>PL.find(p=>p.id===id);
+const partnerOf=a=>PT[a.id]?byId(PT[a.id]):null;
 const women=()=>PL.filter(p=>p.g==='f');
 const men=()=>PL.filter(p=>p.g==='m');
-const DEF={code:'rural',em:0.55,er:1.6,ma:1.6,open:false,tally:{}};
-let S=JSON.parse(localStorage.getItem('siete')||'null')||JSON.parse(JSON.stringify(DEF));
-const save=()=>localStorage.setItem('siete',JSON.stringify(S));
+const DEF={code:'Rural5560',em:0.35,er:1.4,ma:1.4,niv:1,open:false,tally:{}};
+let S=JSON.parse(localStorage.getItem('siete2')||'null')||JSON.parse(JSON.stringify(DEF));
+if(!S.niv)S.niv=1;
+const save=()=>localStorage.setItem('siete2',JSON.stringify(S));
 const recent={};
-const emWord=v=>v<45?'suave':v<70?'medio':'alto';
+const emWord=v=>v<30?'suave':v<50?'medio':'alto';
 const av=p=>'<div class="av">'+AV[p.id]+'</div>';
+const whoT=(b,i)=>{document.getElementById('who').innerHTML=`<div><b>${b}</b><i>${i}</i></div>`};
+const GL={ruleta:'◎',vd:'✦',nunca:'◍',dedo:'☝',ciego:'▣'};
+function setGame(g){const p=document.getElementById('play');p.dataset.g=g||'';p.dataset.gl=GL[g]||''}
 let cur='cover';
 function go(id,back){if(id===cur)return;const o=document.getElementById(cur),n=document.getElementById(id);if(id==='hub')renderHub();
 n.classList.add('on',back?'pp-entra-izq':'pp-entra-dcha');o.classList.add(back?'pp-sale-dcha':'pp-sale-izq');cur=id;
 setTimeout(()=>o.classList.remove('on','pp-sale-dcha','pp-sale-izq'),260);setTimeout(()=>n.classList.remove('pp-entra-izq','pp-entra-dcha'),270);n.scrollTop=0}
 function closeOv(id){document.getElementById(id).classList.remove('on')}
 function saveSess(o){S.sess=o;save()}
-const GAMES=[{id:'ruleta',n:'La Ruleta',d:'Gira y que decida el tridente.',ic:'◎'},{id:'vd',n:'Verdad o Reto',d:'Responde o hazlo. Si no, chupito.',ic:'✦'},{id:'nunca',n:'Yo Nunca',d:'Si te aplica, bebes.',ic:'◍'},{id:'dedo',n:'El Dedo',d:'A la de tres, todos señalan.',ic:'☝'},{id:'ciego',n:'Reto a Ciegas',d:'Nivel 1, 2 o 3. Sin saber qué viene.',ic:'▣'}];
-function renderHub(){document.getElementById('lockState').textContent=S.open?'abierto':'cerrado';
+function tierNow(){return S.noche?S.noche.tier:(S.niv||1)}
+const poolKey=b=>{const k=b+tierNow();return P[k]?k:b};
+const GAMES=[{id:'ruleta',n:'La Ruleta',d:'Gira. Quien caiga, paga.',ic:'◎'},{id:'vd',n:'Verdad o Reto',d:'Responde o hazlo. Si no, chupito.',ic:'✦'},{id:'nunca',n:'Yo Nunca',d:'Si te aplica, bebes.',ic:'◍'},{id:'dedo',n:'El Dedo',d:'A la de tres, todos señalan.',ic:'☝'},{id:'ciego',n:'Reto a Ciegas',d:'Nivel 1, 2 o 3. Sin saber qué viene.',ic:'▣'}];
+const ACENTO={ruleta:['#FF3B30','#3d1620'],vd:['#FFD23F','#3d3113'],nunca:['#9B5CFF','#2c1a45'],dedo:['#2EC8FF','#10303d'],ciego:['#FF4FA3','#3d1630']};
+function renderHub(){
+const st=document.getElementById('lockState');st.className='badge'+(S.open?' on':'');st.textContent=S.open?'ABIERTO':'CERRADO';
 document.getElementById('cast').innerHTML=PL.map(p=>`<div class="chip">${av(p)}<b>${p.n}</b></div>`).join('');
-let extra='';
-if(S.open&&S.sess){const g=GAMES.find(x=>x.id===S.sess.g);if(g)extra=`<div class="gcard resume" onclick="resumeSess()"><div class="ic">↻</div><div><h3>Seguir: ${g.n}</h3><p>Retoma donde lo dejaste.</p></div></div>`}
-document.getElementById('games').innerHTML=extra+GAMES.map(g=>`<div class="gcard ${S.open?'':'locked'}" onclick="openGame('${g.id}')">${S.open?'':'<span class="pad">'+CANDADO+'</span>'}<div class="ic">${g.ic}</div><div><h3>${g.n}</h3><p>${g.d}</p></div></div>`).join('')}
+let h='';
+if(S.open)h+=`<div class="hero" onclick="empezarNoche()"><div class="moon">☾</div><div><h3>${S.noche?'Seguir la noche':'Modo noche'}</h3><p>${S.noche?'Vais por la ronda '+S.noche.r+' de '+RONDAS.length+'. Nivel '+S.noche.tier+'.':'Seis rondas de menos a más. El juego pregunta antes de apretar.'}</p></div></div>`;
+if(S.open&&S.sess){const g=GAMES.find(x=>x.id===S.sess.g);if(g)h+=`<div class="gcard wide resume" style="--ac:#FF3B30;--ac2:#3a1622" onclick="resumeSess()"><span class="wm">↻</span><div class="ic">↻</div><div><h3>Seguir: ${g.n}</h3><p>Retoma donde lo dejaste.</p></div></div>`}
+h+=GAMES.map(g=>{const c=ACENTO[g.id];const wide=g.id==='ruleta';
+return `<div class="gcard${wide?' wide':''}${S.open?'':' locked'}" style="--ac:${c[0]};--ac2:${c[1]}" onclick="openGame('${g.id}')">${S.open?'':'<span class="pad">'+CANDADO+'</span>'}<span class="wm">${g.ic}</span><div class="ic">${g.ic}</div><div><h3>${g.n}</h3><p>${g.d}</p></div></div>`}).join('');
+const tot=Object.values(S.tally||{}).reduce((a,b)=>a+b,0);
+h+=`<p class="hint">${tot?'Chupitos esta noche: '+tot:'Nadie ha pagado todavía.'}</p>`;
+document.getElementById('games').innerHTML=h}
 let pending=null;
 function openGame(id){if(!S.open){pending=id;document.getElementById('candadoOv').innerHTML=CANDADO;document.getElementById('codeIn').value='';document.getElementById('lockErr').textContent='';document.getElementById('lockOv').classList.add('on');return}launch(id)}
 function tryCode(){const v=document.getElementById('codeIn').value.trim().toLowerCase(),box=document.querySelector('#lockOv .box');
@@ -498,59 +620,96 @@ function take(pool){const arr=P[pool]||[];if(!arr.length)return '…';let h=rece
 const c=cand[rnd(cand.length)];h.push(c);if(h.length>Math.ceil(arr.length*.6))h.shift();return c}
 const fill=(t,a,b)=>t.replace(/\{A\}/g,a?a.n:'').replace(/\{B\}/g,b?b.n:'');
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+let recentW=[];
+function randWoman(){const all=women().filter(x=>x.id!=='ma');const c=all.filter(x=>!recentW.includes(x.id));const p=c.length?c:all;const w=p[rnd(p.length)];recentW.push(w.id);if(recentW.length>2)recentW.shift();return w}
+function randOther(a){const o=PL.filter(p=>p.id!==a.id);return o[rnd(o.length)]}
 function pickActive(){const pool=[];PL.forEach(p=>{const w=p.id==='er'?S.er:p.id==='ma'?S.ma:1;for(let i=0;i<Math.round(w*2);i++)pool.push(p)});return pool[rnd(pool.length)]}
-function focusFor(a){const r=Math.random(),e=S.em;
-if(a.id==='er'){if(r<e)return{pool:'em',t:byId('ma')};if(r<e+.12)return{pool:'pair',t:byId('ce')};if(r<e+.22)return{pool:'cross',t:women().filter(x=>x.id!=='ma'&&x.id!=='ce')[rnd(2)]};return{pool:'soloM',t:null}}
-if(a.id==='ma'){if(r<e)return{pool:'em',t:byId('er')};if(r<e+.25)return{pool:'gg',t:women().filter(x=>x.id!=='ma')[rnd(3)]};return{pool:'soloF',t:null}}
-if(a.g==='f'){if(r<.35)return{pool:'pair',t:byId(PT[a.id])};if(r<.6)return{pool:'gg',t:women().filter(x=>x.id!==a.id)[rnd(3)]};if(r<.8)return{pool:'cross',t:men().filter(x=>x.id!==PT[a.id])[rnd(3)]};return{pool:'soloF',t:null}}
-if(r<.4)return{pool:'pair',t:byId(PT[a.id])};if(r<.65)return{pool:'bb',t:men().filter(x=>x.id!==a.id)[rnd(2)]};if(r<.85)return{pool:'cross',t:women().filter(x=>x.id!==PT[a.id])[rnd(3)]};return{pool:'soloM',t:null}}
+function focusFor(a,kind){const r=Math.random();
+if(kind==='v'){if(r<.62)return{pool:'verT',t:randOther(a)};return{pool:'verS',t:null}}
+if(a.id==='ma'){if(r<.30)return{pool:'retoDel',t:null};if(r<.82)return{pool:'retoM',t:randWoman()};return{pool:'retoG',t:null}}
+if(PT[a.id]){if(r<.78)return{pool:'retoP',t:partnerOf(a)};return{pool:'retoG',t:null}}
+return{pool:'retoG',t:null}}
 const stage=()=>document.getElementById('stage');
-function launch(id){go('play');document.getElementById('who').innerHTML='';if(id==='vd')return startVD(pickActive().id);if(id==='ruleta')return ruleta();if(id==='nunca')return nunca();if(id==='dedo')return dedo();if(id==='ciego')return ciego()}
+function launch(id){if(id!=='noche'){S.noche=null;save()}setGame(id==='noche'?'':id);go('play');document.getElementById('who').innerHTML='';
+if(id==='noche')return empezarRonda();if(id==='vd')return vdIntro();if(id==='ruleta')return ruletaIntro();if(id==='nunca')return nuncaIntro();if(id==='dedo')return dedoIntro();if(id==='ciego')return ciegoIntro()}
 function exitGame(){delete S.sess;save();go('hub',1)}
 function resumeSess(){if(!S.sess)return;go('play');resume(S.sess)}
-function resume(s){if(!s)return;
-if(s.g==='vd'){const a=byId(s.a);if(!a)return exitGame();document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>turno</i></div>`;
- if(s.ph==='ask')return showAsk(a);return showCard(a,s.k,s.t,s.b?byId(s.b):null)}
-if(s.g==='ruleta')return ruleta();
-if(s.g==='dedo')return dedo();
-if(s.g==='ciego'){if(s.ph==='rev')return showReveal(s.l,s.t);if(s.ph==='card')return showCiegoCard(s.l,s.t);return ciego()}
-if(s.g==='nunca'){deck=(S.deck||[]).slice();if(s.t)return showYN(s.t);return nunca()}}
+function resume(s){if(!s)return;setGame(s.g);
+if(s.g==='vd'){if(s.ph==='intro')return vdIntro();const a=byId(s.a);if(!a)return exitGame();document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>turno</i></div>`;if(s.ph==='ask')return showAsk(a);return showCard(a,s.k,s.t,s.b?byId(s.b):null)}
+if(s.g==='ruleta'){if(s.ph==='intro')return ruletaIntro();if(s.ph==='board')return ruletaBoard();const a=byId(s.a);if(!a)return ruletaBoard();document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>le toca</i></div>`;return showCastigoCard(a,s.t,s.b?byId(s.b):null)}
+if(s.g==='dedo'){if(s.ph==='intro')return dedoIntro();return dedoCount()}
+if(s.g==='ciego'){if(s.ph==='intro')return ciegoIntro();const a=byId(s.a);if(a){document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>reto a ciegas</i></div>`}
+ if(s.ph==='rev')return showReveal(s.l,s.t);if(s.ph==='card')return showCiegoCard(s.l,s.t);return showLvl()}
+if(s.g==='nunca'){deck=(S.deck||[]).slice();if(s.ph==='intro')return nuncaIntro();if(s.t)return showYN(s.t);return nextYN()}}
+function empezarNoche(){S.noche={r:1,tier:1,left:RONDAS[0].n};S.niv=1;save();launch('noche')}
+function empezarRonda(){const r=RONDAS[S.noche.r-1];S.noche.tier=r.l0;S.noche.left=r.n;S.niv=r.l0;save();
+if(r.g==='nunca')return nuncaIntro();if(r.g==='ruleta')return ruletaBoard();if(r.g==='vd')return vdIntro();if(r.g==='dedo')return dedoIntro();return ciegoIntro()}
+function primerItem(){const g=S.sess&&S.sess.g;setGame(g);if(g==='vd')return startVD(pickActive().id);if(g==='nunca')return nextYN();if(g==='ruleta')return ruletaBoard();if(g==='ciego')return ciegoTurn();if(g==='dedo')return dedoCount()}
+function advance(){if(S.noche){S.noche.left--;save();
+ if(S.noche.left<=0)return nivelGate();
+ return primerItem()}
+const g=S.sess&&S.sess.g;if(g==='vd')return startVD(pickActive().id);if(g==='nunca')return nextYN();if(g==='ruleta')return ruletaBoard();if(g==='ciego')return ciegoTurn();if(g==='dedo')return dedoCount()}
+function nivelGate(){const r=RONDAS[S.noche.r-1];
+if(S.noche.tier<r.l1){whoT('Nivel '+S.noche.tier,'se puede apretar');
+return stage().innerHTML=`<div class="card center carta-entra"><div class="tag">AQUÍ SE PUEDE APRETAR</div><div class="txt">Lo que viene ya es más fuerte. ¿Subimos de nivel o seguimos un rato en este?</div></div><div class="acts"><button class="btn ghost" onclick="seguirAqui()">SEGUIR AQUÍ</button><button class="btn" onclick="subirNivel()">SUBIR DE NIVEL</button></div>`}
+finRonda()}
+function subirNivel(){S.noche.tier=Math.min(3,S.noche.tier+1);S.noche.left=RONDAS[S.noche.r-1].n;S.niv=S.noche.tier;save();primerItem()}
+function seguirAqui(){S.noche.left=3;save();primerItem()}
+function masAqui(){S.noche.left=5;save();primerItem()}
+function finRonda(){const r=S.noche.r;
+if(r>=RONDAS.length){whoT('Nivel 3','máximo');
+return stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL MÁXIMO</div><div class="txt">Ya no se sube más. Podéis seguir aquí todo lo que queráis.</div></div><div class="acts"><button class="btn ghost" onclick="exitGame()">TERMINAR</button><button class="btn" onclick="masAqui()">MÁS</button></div>`}
+whoT('Ronda '+r,'terminada');
+stage().innerHTML=`<div class="card center carta-entra"><div class="tag">RONDA ${r} TERMINADA</div><div class="txt">¿Pasamos a otro juego o seguimos un poco más en este?</div></div><div class="acts"><button class="btn ghost" onclick="seguirAqui()">SEGUIR AQUÍ</button><button class="btn" onclick="sigRonda()">SIGUIENTE JUEGO</button></div>`}
+function sigRonda(){S.noche.r++;S.noche.left=RONDAS[S.noche.r-1].n;S.noche.tier=RONDAS[S.noche.r-1].l0;S.niv=S.noche.tier;save();empezarRonda()}
+function vdIntro(){whoT('Verdad o Reto','turno al azar');saveSess({g:'vd',ph:'intro'});stage().innerHTML=`<div class="card center carta-entra"><div class="tag">CÓMO VA</div><div class="txt">La app elige a alguien. Esa persona elige verdad o reto y lo cumple. Si no cumple, chupito.</div></div><div class="acts"><button class="btn" onclick="primerItem()">EMPEZAR</button></div>`}
 function startVD(id){const a=byId(id);document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>turno</i></div>`;saveSess({g:'vd',a:id,ph:'ask'});showAsk(a)}
-function showAsk(a){stage().innerHTML=`<div class="card center carta-entra"><div class="tag">LE TOCA A ${a.n.toUpperCase()}</div><div class="txt" style="font-size:28px;font-family:'Luckiest Guy',Impact,sans-serif">¿VERDAD O RETO?</div><div style="display:flex;gap:9px;margin-top:20px;width:100%"><button class="btn" onclick="playVD('${a.id}','v')">VERDAD</button><button class="btn ghost" onclick="playVD('${a.id}','d')">RETO</button></div></div>`}
-function playVD(id,kind){const a=byId(id),f=focusFor(a),b=f.t;const txt=fill(take(f.pool+(kind==='v'?'T':'D')),a,b);vib(18);
+function showAsk(a){stage().innerHTML=`<div class="card center carta-entra"><div class="tag">LE TOCA A ${a.n.toUpperCase()}</div><div class="txt" style="font-size:26px;font-family:'Luckiest Guy',Impact,sans-serif">¿VERDAD O RETO?</div><div style="display:flex;gap:9px;margin-top:20px;width:100%"><button class="btn" onclick="playVD('${a.id}','v')">VERDAD</button><button class="btn ghost" onclick="playVD('${a.id}','d')">RETO</button></div></div>`}
+function playVD(id,kind){const a=byId(id),f=focusFor(a,kind),b=f.t;const txt=fill(take(poolKey(f.pool)),a,b);vib(18);
 saveSess({g:'vd',a:id,ph:'card',k:kind,t:txt,b:b?b.id:null});showCard(a,kind,txt,b)}
-function showCard(a,kind,txt,b){stage().innerHTML=`<div class="card carta-entra" id="cardBox"><div class="tag">${kind==='v'?'VERDAD':'RETO'}${b?' · CON '+b.n.toUpperCase():''}</div><div class="txt">${esc(txt).split(a.n).join('<b>'+a.n+'</b>')}</div>${b?'<div class="duo">'+av(a)+av(b)+'</div>':''}<div id="sipSlot"></div></div><div class="acts"><button class="btn ghost" onclick="sip('${a.id}')">NO CUMPLE</button><button class="btn" onclick="startVD(pickActive().id)">SIGUIENTE</button></div><p class="hint">Cumplido: siguiente. No cumplido: chupito y siguiente.</p>`}
+function showCard(a,kind,txt,b){stage().innerHTML=`<div class="card carta-entra" id="cardBox"><div class="tag">${kind==='v'?'VERDAD':'RETO'}${b?' · CON '+b.n.toUpperCase():''}</div><div class="txt">${esc(txt).split(a.n).join('<b>'+a.n+'</b>')}</div>${b?'<div class="duo">'+av(a)+av(b)+'</div>':''}<div id="sipSlot"></div></div><div class="acts"><button class="btn ghost" onclick="sip('${a.id}')">NO CUMPLE</button><button class="btn" onclick="advance()">SIGUIENTE</button></div><p class="hint">Cumplido: siguiente. No cumplido: chupito y siguiente.</p>`}
 function sip(id){S.tally[id]=(S.tally[id]||0)+1;save();vib(60);const slot=document.getElementById('sipSlot'),box=document.getElementById('cardBox');if(!slot)return;
 slot.innerHTML=SELLO;if(box){box.classList.remove('impacto-tiembla');void box.offsetWidth;box.classList.add('impacto-tiembla')}}
 let angulo=0,girando=false;
-function ruleta(){document.getElementById('who').innerHTML='<div><b>La Ruleta</b><i>que decida el tridente</i></div>';saveSess({g:'ruleta'});
-stage().innerHTML='<div class="roul">'+RULETA+'</div><div class="legend">'+PL.map(p=>`<div class="chip">${av(p)}<b>${p.n}</b></div>`).join('')+'</div><button class="btn" style="margin-top:14px" onclick="girar()">GIRAR</button><p class="hint">Gira. Lo que caiga, se juega.</p>'}
+function ruletaIntro(){whoT('La Ruleta','que decida el tridente');saveSess({g:'ruleta',ph:'intro'});stage().innerHTML=`<div class="card center carta-entra"><div class="tag">CÓMO VA</div><div class="txt">Giras el tridente. Quien caiga, paga: chupito o castigo corto. Si se niega, bebe doble.</div></div><div class="acts"><button class="btn" onclick="primerItem()">ENTENDIDO</button></div>`}
+function ruletaBoard(){whoT('La Ruleta','que decida el tridente');saveSess({g:'ruleta',ph:'board'});
+stage().innerHTML='<div class="roul">'+RULETA+'</div><div class="legend">'+PL.map(p=>`<div class="chip">${av(p)}<b>${p.n}</b></div>`).join('')+'</div><button class="btn" style="margin-top:14px" onclick="girar()">GIRAR</button><p class="hint">Quien caiga, paga.</p>'}
 function girar(){if(girando)return;const disco=document.querySelector('.ruleta-disco'),r=document.getElementById('ruleta');if(!disco)return;girando=true;vib(15);
 const idx=pickActiveIndex(),paso=360/7,sector=idx*paso+paso/2,desde=angulo%360,delta=(360-((sector+desde)%360))%360,fin=angulo+1800+delta;angulo=fin;
 disco.style.setProperty('--desde',desde+'deg');disco.style.setProperty('--giro',fin+'deg');
 disco.classList.remove('is-girando');r.classList.remove('is-girando');void r.offsetWidth;
-disco.classList.add('is-girando');r.classList.add('is-girando');setTimeout(()=>{girando=false;startVD(PL[idx].id)},4250)}
+disco.classList.add('is-girando');r.classList.add('is-girando');setTimeout(()=>{girando=false;showCastigo(PL[idx].id)},4250)}
+function showCastigo(id){const a=byId(id);if(!a)return ruletaBoard();const t=tierNow();const pool=t<=1?CAST1:t===2?CAST2:CAST3;
+const c=pool[rnd(pool.length)];let b=null;if(c.tg){b=PL.filter(p=>p.id!==a.id)[rnd(6)]}
+const txt=c.t.replace('{B}',b?b.n:'');saveSess({g:'ruleta',ph:'res',a:a.id,t:txt,b:b?b.id:null});
+document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>le toca</i></div>`;showCastigoCard(a,txt,b)}
+function showCastigoCard(a,txt,b){stage().innerHTML=`<div class="card carta-entra" id="cardBox"><div class="tag">LE TOCA A ${a.n.toUpperCase()}</div><div class="txt">${esc(txt).split(a.n).join('<b>'+a.n+'</b>')}</div><div class="duo">${av(a)}${b?av(b):''}</div><div id="sipSlot"></div></div><div class="acts"><button class="btn ghost" onclick="sip('${a.id}')">NO CUMPLE</button><button class="btn" onclick="advance()">OTRA VUELTA</button></div>`}
 function pickActiveIndex(){const w=PL.map(p=>p.id==='er'?S.er:p.id==='ma'?S.ma:1);const tot=w.reduce((a,b)=>a+b,0);let r=Math.random()*tot;for(let i=0;i<w.length;i++){r-=w[i];if(r<=0)return i}return 0}
 let deck=[];
-function nunca(){document.getElementById('who').innerHTML='<div><b>Yo Nunca</b><i>si te aplica, bebes</i></div>';if(!deck.length)deck=[...P.yn].sort(()=>Math.random()-.5);S.deck=deck;save();saveSess({g:'nunca'});nextYN()}
-function nextYN(){if(!deck.length)deck=[...P.yn].sort(()=>Math.random()-.5);const t=deck.pop();S.deck=deck;saveSess({g:'nunca',t:t});showYN(t)}
+function nuncaIntro(){whoT('Yo Nunca','si te aplica, bebes');saveSess({g:'nunca',ph:'intro'});stage().innerHTML=`<div class="card center carta-entra"><div class="tag">CÓMO VA</div><div class="txt">Sale una frase. Quien lo haya hecho, bebe. Sin mentir: aquí nadie fiscaliza.</div></div><div class="acts"><button class="btn" onclick="primerItem()">EMPEZAR</button></div>`}
+function nextYN(){const arr=P['yn'+tierNow()]||P.yn;if(!deck.length)deck=[...arr].sort(()=>Math.random()-.5);const t=deck.pop();S.deck=deck;save();saveSess({g:'nunca',t:t});showYN(t)}
 function showYN(t){document.getElementById('who').innerHTML='<div><b>Yo Nunca</b><i>si te aplica, bebes</i></div>';
-stage().innerHTML=`<div class="card center carta-entra"><div class="tag">YO NUNCA</div><div class="txt" style="font-size:23px">${esc(t.replace('Yo nunca... ',''))}</div></div><div class="acts"><button class="btn" onclick="nextYN()">SIGUIENTE</button></div><p class="hint">Quien lo haya hecho, bebe. Sin excusas.</p>`}
-function dedo(){document.getElementById('who').innerHTML='<div><b>El Dedo</b><i>todos señalan</i></div>';saveSess({g:'dedo'});
-stage().innerHTML=`<div class="card center carta-entra"><div class="big" id="cnt">3</div><p class="hint">Preparad los dedos.</p></div><div class="acts"><button class="btn" onclick="dedoRun()">EMPEZAR</button></div>`}
+stage().innerHTML=`<div class="card center carta-entra"><div class="tag">YO NUNCA</div><div class="txt" style="font-size:23px">${esc(t.replace('Yo nunca... ',''))}</div></div><div class="acts"><button class="btn" onclick="advance()">SIGUIENTE</button></div><p class="hint">Quien lo haya hecho, bebe. Sin excusas.</p>`}
+function dedoIntro(){whoT('El Dedo','todos señalan');saveSess({g:'dedo',ph:'intro'});stage().innerHTML=`<div class="card center carta-entra"><div class="tag">CÓMO VA</div><div class="txt">A la de tres, todos señaláis a la vez. El más señalado bebe. Si hay empate, beben todos los empatados.</div></div><div class="acts"><button class="btn" onclick="primerItem()">EMPEZAR</button></div>`}
+function dedoCount(){saveSess({g:'dedo',ph:'count'});stage().innerHTML=`<div class="card center carta-entra"><div class="big" id="cnt">3</div><p class="hint">Preparad los dedos.</p></div><div class="acts"><button class="btn" onclick="dedoRun()">YA</button></div>`}
 function dedoRun(){const c=document.getElementById('cnt');let n=3;vib(20);const t=setInterval(()=>{n--;c.textContent=n>0?n:'¡YA!';vib(30);
-if(n<=0){clearInterval(t);setTimeout(()=>{stage().innerHTML=`<div class="card center carta-entra"><div class="tag">RESULTADO</div><div class="txt" style="font-size:25px">El más señalado bebe.</div><p class="hint">Empate: beben todos los empatados.</p></div><div class="acts"><button class="btn" onclick="dedo()">OTRA</button></div>`},600)}},700)}
-function ciego(){document.getElementById('who').innerHTML='<div><b>Reto a Ciegas</b><i>elige nivel</i></div>';saveSess({g:'ciego',ph:'lvl'});showLvl()}
+if(n<=0){clearInterval(t);setTimeout(()=>{stage().innerHTML=`<div class="card center carta-entra"><div class="tag">RESULTADO</div><div class="txt" style="font-size:25px">El más señalado bebe.</div><p class="hint">Empate: beben todos los empatados.</p></div><div class="acts"><button class="btn" onclick="advance()">OTRA</button></div>`},600)}},700)}
+function ciegoIntro(){whoT('Reto a Ciegas','elige nivel');saveSess({g:'ciego',ph:'intro'});stage().innerHTML=`<div class="card center carta-entra"><div class="tag">CÓMO VA</div><div class="txt">Eliges intensidad sin saber la prueba. Se abre delante de todos y se cumple. Si no, chupito.</div></div><div class="acts"><button class="btn" onclick="primerItem()">EMPEZAR</button></div>`}
+function ciegoTurn(){const a=pickActive();document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>reto a ciegas</i></div>`;saveSess({g:'ciego',ph:'lvl',a:a.id});showLvl()}
 function showLvl(){stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL</div><div class="txt" style="font-size:22px">Elige la intensidad. No sabrás qué es hasta abrirlo.</div></div><div class="acts" style="margin-top:12px"><button class="btn ghost" onclick="ciegoCard(0)">SUAVE</button><button class="btn" onclick="ciegoCard(1)">MEDIO</button><button class="btn ghost" onclick="ciegoCard(2)">FUERTE</button></div>`}
-function ciegoCard(l){const t=P.cl[l][rnd(P.cl[l].length)];saveSess({g:'ciego',ph:'card',l:l,t:t});showCiegoCard(l,t)}
+function ciegoCard(l){const a=byId(S.sess.a)||pickActive();let t=P.cl[l][rnd(P.cl[l].length)];let b=null;
+if(t.indexOf('{B}')>-1){b=l===2?(partnerOf(a)||(a.id==='ma'?randWoman():randOther(a))):randOther(a);t=t.replace('{B}',b.n)}
+saveSess({g:'ciego',ph:'card',l:l,a:a.id,t:t});showCiegoCard(l,t)}
 function showCiegoCard(l,t){stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL ${l+1}</div><div class="big" style="font-size:50px">?</div></div><div class="acts"><button class="btn" onclick="ciegoReveal(${l},this)" data-t="${esc(t).replace(/"/g,'&quot;')}">ABRIR</button></div>`}
-function ciegoReveal(l,btn){vib(40);const t=btn.dataset.t;saveSess({g:'ciego',ph:'rev',l:l,t:t});showReveal(l,t)}
-function showReveal(l,t){stage().innerHTML=`<div class="card carta-entra"><div class="tag">NIVEL ${l+1} · RETO</div><div class="txt">${t}</div></div><div class="acts"><button class="btn" onclick="ciego()">OTRO</button></div>`}
+function ciegoReveal(l,btn){vib(40);const t=btn.dataset.t;saveSess({g:'ciego',ph:'rev',l:l,a:S.sess.a,t:t});showReveal(l,t)}
+function showReveal(l,t){stage().innerHTML=`<div class="card carta-entra"><div class="tag">NIVEL ${l+1} · RETO</div><div class="txt">${t}</div></div><div class="acts"><button class="btn" onclick="advance()">OTRO</button></div>`}
 let lp;
 document.getElementById('cover').addEventListener('pointerdown',()=>{lp=setTimeout(openAdmin,750)});
 ['pointerup','pointerleave','pointercancel'].forEach(e=>document.getElementById('cover').addEventListener(e,()=>clearTimeout(lp)));
+function setNiv(n){S.niv=n;save();const el=document.getElementById('vNiv');if(el)el.textContent=n}
 function openAdmin(){vib(40);document.getElementById('rEr').value=S.er;document.getElementById('rMa').value=S.ma;document.getElementById('rEm').value=Math.round(S.em*100);
 document.getElementById('vEr').textContent=S.er;document.getElementById('vMa').textContent=S.ma;document.getElementById('vEm').textContent=emWord(Math.round(S.em*100));
+document.getElementById('vNiv').textContent=S.niv;
 document.getElementById('codeSet').value=S.code;
 const t=Object.entries(S.tally).sort((a,b)=>b[1]-a[1]);
 document.getElementById('tally').innerHTML=t.length?t.map(([id,v])=>`<tr><td>${byId(id)?byId(id).n:id}</td><td>${v}</td></tr>`).join(''):'<tr><td>Nadie todavía</td><td>0</td></tr>';
@@ -559,8 +718,12 @@ document.getElementById('adminOv').classList.add('on')}
 if(id==='rEr'){S.er=v;document.getElementById('vEr').textContent=v.toFixed(1)}
 if(id==='rMa'){S.ma=v;document.getElementById('vMa').textContent=v.toFixed(1)}
 if(id==='rEm'){S.em=v/100;document.getElementById('vEm').textContent=emWord(v)}}));
-function saveAdmin(){const c=document.getElementById('codeSet').value.trim().toLowerCase();if(c)S.code=c;save();closeOv('adminOv');vib(30)}
-function resetAll(){localStorage.removeItem('siete');location.reload()}
+function saveAdmin(){const c=document.getElementById('codeSet').value.trim();if(c)S.code=c;save();closeOv('adminOv');vib(30)}
+function resetAll(){localStorage.removeItem('siete2');location.reload()}
+(function(){const box=document.querySelector('#adminOv .box'),btn=box.querySelector('.btn');
+const d=document.createElement('div');d.className='fld';
+d.innerHTML='<label>Nivel de la noche <b id="vNiv">'+S.niv+'</b></label><div style="display:flex;gap:6px"><button class="btn ghost sm" onclick="setNiv(1)">SUAVE</button><button class="btn ghost sm" onclick="setNiv(2)">MEDIO</button><button class="btn ghost sm" onclick="setNiv(3)">FUERTE</button></div>';
+box.insertBefore(d,btn)})();
 renderHub();
 if(S.open&&S.sess)resumeSess();
 (function(){
@@ -575,6 +738,109 @@ if(S.open&&S.sess)resumeSess();
   try{navigator.serviceWorker.register(URL.createObjectURL(new Blob([code],{type:'text/javascript'}))).catch(()=>{})}catch(e){}
  }
 })();
+/* ===== MODO NOCHE + REPARTO POR NIVELES ===== */
+(function(){
+const st=document.createElement('style');
+st.textContent='.hero{position:relative}.hero .pad{position:absolute;top:9px;right:9px;z-index:2}.hero .pad svg{width:22px;height:auto}'
++'.hero .nueva{display:inline-block;margin-top:9px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amarillo);opacity:.8;border-bottom:1px solid currentColor;cursor:pointer}';
+document.head.appendChild(st);
+const NIVELES=[
+ {n:'Pecados veniales',d:'Sorbos, sillas, chistes, imitaciones. Todos con todos y nada que dé apuro.'},
+ {n:'Pecados capitales',d:'Ya hay dos besos, abrazos, regazos y hay que mojarse.'},
+ {n:'Condena eterna',d:'Aquí se acaba la vergüenza. El que se corte, chupito doble.'}];
+const ORDEN=['nunca','dedo','ruleta','ciego','vd'];
+const CARGA=[[6,3,4,3,5],[7,3,5,4,7],[8,4,6,5,9]];
+Object.assign(P,{
+retoH1:["{A}: tráele de beber a {B} y sírveselo.","{A}: dale una silla a {B} para que se siente.","{A}: choca esos cinco con {B} y dile algo que te caiga bien.","{A}: imita a {B} hasta que lo adivine.","{A}: cuéntale a {B} el chiste más malo que sepas.","{A}: cámbiate de sitio con {B} y quédate ahí un turno.","{A}: hazle a {B} una pregunta tonta y escucha la respuesta entera.","{A}: ponle una canción a {B} y baila un estribillo."],
+retoH2:["{A}: dale dos besos a {B}.","{A}: abrazo de 8 segundos con {B}.","{A}: coge a {B} del brazo hasta tu próximo turno.","{A}: baila un minuto con {B} como si fuera tu pareja.","{A}: hazle un cumplido a {B} mirándole a los ojos.","{A}: siéntate al lado de {B} y susúrrale un secreto tonto."],
+retoH3:["{A}: dale un beso de 10 segundos a {B}.","{A}: siéntate en el regazo de {B} hasta tu próximo turno.","{A}: besa a {B} en el cuello y luego en la boca.","{A}: susúrrale a {B} lo que le harías si estuvierais solos.","{A}: dile a {B} por dónde empezarías.","{A}: dale dos besos donde {B} diga."],
+retoDel1:["que {B} elija a quién: {A} le da dos besos en la cara.","que {B} elija a quién y {A} le hace un cumplido mirándole a los ojos.","que {B} elija a quién se sienta al lado de {A} hasta su próximo turno.","que {B} elija a quién y {A} le coge del brazo hasta su próximo turno.","que {B} elija a quién: {A} le susurra un secreto tonto al oído."],
+retoDel2:["que {B} elija a quién: {A} le da un abrazo de 10 segundos.","que {B} elija dónde se sienta {A} hasta su próximo turno.","que {B} elija a quién: {A} le susurra al oído lo primero que se le pase.","que {B} elija a quién y {A} baila con esa persona un minuto.","que {B} elija a quién: {A} le cuenta algo que no haya contado nunca."],
+retoDel3:["que {B} elija a quién: {A} le da un beso de 10 segundos.","que {B} elija dónde se sienta {A} hasta su próximo turno, y con quién.","que {B} elija a quién: {A} le besa el cuello y luego la boca.","que {B} elija a quién: {A} le susurra lo que le haría.","que {B} elija a quién: {A} se sienta en su regazo un turno.","que {B} elija a quién y {A} le da dos besos donde {B} diga."]});
+if(S.noche&&S.noche.nv===undefined)S.noche={nv:Math.min(3,S.noche.tier||1),gi:0,left:3};
+tierNow=function(){return S.noche?S.noche.nv:(S.niv||1)};
+castTarget=function(a){const t=tierNow(),r=Math.random();
+if(a.id==='ma'){const pe=t===1?.15:t===2?.22:.30,pm=t===1?.40:t===2?.25:.12;
+if(r<pe)return byId('er');
+if(r<pe+pm)return[byId('je'),byId('is')][rnd(2)];
+const w=women().filter(x=>x.id!=='ma');return w[rnd(w.length)]}
+if(a.id==='er'){if(r<.20+(t-1)*.08)return byId('ma');const o=PL.filter(x=>x.id!=='er'&&x.id!=='ma');return o[rnd(o.length)]}
+if(a.g==='m'){if(r<.35-(t-1)*.10)return byId('ma');const o=PL.filter(x=>x.id!==a.id&&x.id!=='ma');return o[rnd(o.length)]}
+const o=PL.filter(x=>x.id!==a.id);
+if(r<.40)return byId('ma');return o[rnd(o.length)]};
+focusFor=function(a,kind){const r=Math.random(),t=tierNow(),e=Math.max(.4,Math.min(1.8,(S.em||.35)/.35));
+if(kind==='v'){if(r<.62)return{pool:'verT',t:randOther(a)};return{pool:'verS',t:null}}
+if(a.id==='ma'){const d=Math.min(.8,(t===1?.10:t===2?.35:.60)*e),M=t===1?.25:t===2?.35:.30,H=t===1?.40:t===2?.25:.10;
+if(r<d)return{pool:'retoDel',t:randWoman()};
+if(r<d+M)return{pool:'retoM',t:randWoman()};
+if(r<d+M+H)return{pool:'retoH',t:(t<2?[byId('je'),byId('is'),byId('je'),byId('is'),byId('er')]:men().filter(x=>x.id!=='er'))[rnd(t<2?5:2)]};
+return{pool:'retoG',t:null}}
+if(PT[a.id]){const H=t===1?.40:t===2?.25:.10,P=Math.min(.85,(t===1?.25:t===2?.50:.70)*e);
+if(r<H){let tg;if(a.g==='m'){const w=women().filter(x=>x.id!==PT[a.id]&&x.id!=='ma');tg=[byId('ma'),byId('ma'),...w]}else tg=men().filter(x=>x.id!==PT[a.id]);return{pool:'retoH',t:tg[rnd(tg.length)]}}
+if(r<H+P)return{pool:'retoP',t:partnerOf(a)};
+return{pool:'retoG',t:null}}
+return{pool:'retoG',t:null}};
+function entrar(g){setGame(g);
+if(g==='nunca')return nuncaIntro();if(g==='ruleta')return ruletaIntro();if(g==='vd')return vdIntro();if(g==='dedo')return dedoIntro();return ciegoIntro()}
+empezarNoche=function(){if(S.noche)return seguirNoche();launch('noche')};
+window.nocheNueva=function(){S.noche=null;delete S.sess;save();launch('noche')};
+window.cerrarNoche=function(){S.noche=null;save();exitGame()};
+window.seguirNoche=function(){if(!S.noche)return empezarNoche();
+go('play');S.niv=S.noche.nv;if(!S.noche.left||S.noche.left<1)S.noche.left=1;entrar(ORDEN[S.noche.gi]||'nunca')};
+window.nivelIntro=function(){const nv=S.noche.nv,n=NIVELES[nv-1];whoT('Nivel '+nv,n.n);
+stage().innerHTML=`<div class="card center carta-entra"><div class="tag">NIVEL ${nv} DE 3</div><div class="txt" style="font-size:25px;font-family:'Luckiest Guy',Impact,sans-serif;color:var(--amarillo)">${n.n.toUpperCase()}</div><div class="txt" style="font-size:17px;opacity:.9">${n.d}</div><div class="txt" style="font-size:14px;opacity:.55;margin-top:12px">Cinco juegos seguidos, de menos a más.</div></div><div class="acts"><button class="btn" onclick="empezarRonda()">EMPEZAR NIVEL</button></div>`};
+empezarRonda=function(){const nv=S.noche.nv,g=ORDEN[S.noche.gi];S.niv=nv;S.noche.left=CARGA[nv-1][S.noche.gi];save();entrar(g)};
+primerItem=function(){const g=S.noche?ORDEN[S.noche.gi]:(S.sess&&S.sess.g);if(!g)return;setGame(g);
+if(g==='vd')return startVD(pickActive().id);if(g==='nunca')return nextYN();if(g==='ruleta')return ruletaBoard();if(g==='ciego')return ciegoTurn();if(g==='dedo')return dedoCount()};
+advance=function(){if(S.noche){S.noche.left--;save();if(S.noche.left<=0)return finRonda();return primerItem()}
+const g=S.sess&&S.sess.g;if(!g)return;if(g==='vd')return startVD(pickActive().id);if(g==='nunca')return nextYN();if(g==='ruleta')return ruletaBoard();if(g==='ciego')return ciegoTurn();if(g==='dedo')return dedoCount()};
+finRonda=function(){const nv=S.noche.nv,gi=S.noche.gi;
+if(gi<ORDEN.length-1){whoT('Nivel '+nv,NIVELES[nv-1].n);
+return stage().innerHTML=`<div class="card center carta-entra"><div class="tag">JUEGO TERMINADO</div><div class="txt" style="font-size:19px">¿Pasamos al siguiente juego o seguimos un poco más en este?</div></div><div class="acts"><button class="btn ghost" onclick="seguirAqui()">SEGUIR AQUÍ</button><button class="btn" onclick="sigJuego()">SIGUIENTE JUEGO</button></div>`}
+if(nv<NIVELES.length){whoT('Nivel '+nv,'superado');
+return stage().innerHTML=`<div class="card center carta-entra"><div class="tag">${NIVELES[nv-1].n.toUpperCase()} SUPERADO</div><div class="txt" style="font-size:19px">Se ha acabado el nivel. Lo que viene aprieta de verdad. ¿Subimos?</div></div><div class="acts"><button class="btn ghost" onclick="seguirAqui()">SEGUIR AQUÍ</button><button class="btn" onclick="subirNivel()">SUBIR DE NIVEL</button></div>`}
+whoT('Fin','condena eterna');
+return stage().innerHTML=`<div class="card center carta-entra"><div class="tag">CONDENA ETERNA</div><div class="txt">Habéis llegado hasta el fondo. Aquí ya no queda nada que perder.</div></div><div class="acts"><button class="btn ghost" onclick="cerrarNoche()">TERMINAR</button><button class="btn" onclick="masAqui()">MÁS</button></div>`};
+window.sigJuego=function(){S.noche.gi++;save();empezarRonda()};
+subirNivel=function(){S.noche.nv++;S.noche.gi=0;S.niv=S.noche.nv;save();nivelIntro()};
+seguirAqui=function(){S.noche.left=3;save();primerItem()};
+masAqui=function(){S.noche.left=5;save();primerItem()};
+launch=function(id){if(id!=='noche'){S.noche=null;save()}go('play');document.getElementById('who').innerHTML='';setGame(id==='noche'?'':id);
+if(id==='noche'){if(S.noche)return seguirNoche();S.noche={nv:1,gi:0,left:CARGA[0][0]};S.niv=1;save();return nivelIntro()}
+if(id==='vd')return vdIntro();if(id==='ruleta')return ruletaIntro();if(id==='nunca')return nuncaIntro();if(id==='dedo')return dedoIntro();if(id==='ciego')return ciegoIntro()};
+showCastigo=function(id){const a=byId(id);if(!a)return ruletaBoard();
+const t=tierNow(),pool=t<=1?CAST1:t===2?CAST2:CAST3;
+const c=pool[rnd(pool.length)];let b=null;if(c.tg)b=castTarget(a);
+const txt=c.t.replace('{B}',b?b.n:'');saveSess({g:'ruleta',ph:'res',a:a.id,t:txt,b:b?b.id:null});
+document.getElementById('who').innerHTML=av(a)+`<div><b>${a.n}</b><i>le toca</i></div>`;showCastigoCard(a,txt,b)};
+ciegoCard=function(l){const a=byId(S.sess.a)||pickActive();let t=P.cl[l][rnd(P.cl[l].length)];let b=null;
+if(t.indexOf('{B}')>-1){b=l===2?(partnerOf(a)||castTarget(a)):castTarget(a);t=t.replace('{B}',b.n)}
+saveSess({g:'ciego',ph:'card',l:l,a:a.id,t:t});showCiegoCard(l,t)};
+const _rh=renderHub;
+renderHub=function(){_rh();const g=document.getElementById('games');if(!g)return;
+document.querySelectorAll('#nocheCard').forEach(x=>x.remove());
+let h=g.querySelector('.hero');
+if(!h){h=document.createElement('div');h.className='hero';h.innerHTML='<div><h3></h3><p></p></div>';g.insertBefore(h,g.firstChild)}
+h.style.marginTop='14px';h.style.overflow='visible';h.style.position='relative';
+h.setAttribute('onclick',"openGame('noche')");
+let pad=h.querySelector('.pad');
+if(!S.open){if(!pad){pad=document.createElement('span');pad.className='pad';pad.innerHTML=CANDADO;h.appendChild(pad)}}
+else if(pad)pad.remove();
+const tt=h.querySelector('h3')||h.querySelector('h2'),pp=h.querySelector('p');
+if(S.noche&&S.open){if(tt)tt.textContent='Seguir la noche';if(pp)pp.textContent='Vas por el nivel '+(S.noche.nv||1)+', juego '+Math.min(5,(S.noche.gi||0)+1)+' de 5.'}
+else{if(tt)tt.textContent='Modo noche';if(pp)pp.textContent='Tres niveles, cinco juegos en cada uno.'}
+let lnk=h.querySelector('.nueva');
+if(S.noche&&S.open){
+ if(!lnk){lnk=document.createElement('a');lnk.className='nueva';lnk.textContent='Empezar de cero';
+  lnk.addEventListener('click',ev=>{ev.stopPropagation();
+   if(lnk.dataset.arm==='1'){lnk.dataset.arm='';lnk.textContent='Empezar de cero';nocheNueva();return}
+   lnk.dataset.arm='1';lnk.textContent='¿Seguro? Toca otra vez';
+   setTimeout(()=>{if(lnk.dataset.arm==='1'){lnk.dataset.arm='';lnk.textContent='Empezar de cero'}},4000)});
+  const box=h.querySelector('div')||h;box.appendChild(lnk)}
+}else if(lnk)lnk.remove()};
+renderHub();
+})();
+/* ===== fin ===== */
 </script>
 </body>
 </html>
